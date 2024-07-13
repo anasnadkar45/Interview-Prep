@@ -1,0 +1,18 @@
+.container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.postCard{
+  background: rgb(32, 32, 32);
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* .card-bottom {
+  background-color: white;
+  width: 100%;
+} */
