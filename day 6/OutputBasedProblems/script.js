@@ -29,3 +29,12 @@
 
 // const newArray = [...arr1, ...arr2];
 // console.log(newArray);
+
+let number = 123;
+
+function ReverseNumber(number){
+    const numberStr = number.toString().split('').reverse().join('');
+    return console.log(numberStr);
+}
+
+ReverseNumber(number);
