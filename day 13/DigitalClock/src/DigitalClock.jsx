@@ -1,29 +1,25 @@
 import React, { useEffect, useState } from 'react'
 
 const DigitalClock = () => {
-    const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
     const [hours, setHours] = useState(0);
 
-    useEffect(()=>{
-        const updateTime = () =>{
+    useEffect(() => {
+        const updateTime = () => {
             const now = new Date();
             setSeconds(now.getSeconds());
-            setMinutes(now.getMinutes());
             setHours(now.getHours());
+            setMinutes(now.getMinutes());
         }
-
         updateTime();
-
-        const intervelId = setInterval(updateTime, 1000);
-
+        const intervelId = setInterval(updateTime,1000);
         return () => clearInterval(intervelId);
     })
 
-    const formatTime = (value) =>{
-        return value<10 ? `0${value}` : value
+    const formatTime = (value) => {
+        return value < 10 ? `0${value}` : value
     }
-
     return (
         <div className='w-[500px] mx-auto border border-gray-100 p-5'>
             <h1>Digital Clock</h1>

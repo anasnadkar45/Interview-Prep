@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}

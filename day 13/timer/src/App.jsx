@@ -7,9 +7,9 @@ import WorkoutTimer from './WorkoutTimer'
 function App() {
 
   return (
-    <>
+    <div className='text-white'>
       <WorkoutTimer />
-    </>
+    </div>
   )
 }
 
