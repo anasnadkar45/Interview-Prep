@@ -1,96 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
-const CountdownTimer = () => {
-    const [hours, setHours] = useState();
-    const [minutes, setMinutes] = useState();
-    const [seconds, setSeconds] = useState();
-    const [isRunning, setIsRunning] = useState(false);
+const CountDown = () => {
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    const [active, setActive] = useState(false);
 
-    // Convert the input values into total seconds
-    const totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
     useEffect(() => {
-        let timeoutId;
-        if (isRunning && totalSeconds > 0) {
-            const countdown = totalSeconds;
+        if (seconds >= 60) {
+            const additionalMinutes = Math.floor(seconds / 60);
+            setMinutes((prevMinutes) => prevMinutes + additionalMinutes);
+            setSeconds(seconds % 60);
+        }
 
-            timeoutId = setInterval(() => {
-                setSeconds(prevSeconds => {
-                    if (prevSeconds > 0) {
-                        return prevSeconds - 1;
-                    } else if (minutes > 0) {
-                        setMinutes(prevMinutes => prevMinutes - 1);
-                        return 59; // Reset seconds to 59 when a minute is decremented
-                    } else if (hours > 0) {
-                        setHours(prevHours => prevHours - 1);
-                        setMinutes(59); // Reset minutes to 59 when an hour is decremented
-                        return 59; // Reset seconds to 59
-                    }
-                    setIsRunning(false); // Stop the timer when it reaches zero
-                    return 0;
-                });
+        if (minutes >= 60) {
+            const additionalHours = Math.floor(minutes / 60);
+            setHours((prevHours) => prevHours + additionalHours);
+            setMinutes(minutes % 60);
+        }
+    }, [seconds, minutes]);
+
+    useEffect(() => {
+        let timer;
+
+        if (active) {
+
+            timer = setInterval(() => {
+                if (seconds > 0) {
+                    setSeconds((prevSeconds) => prevSeconds - 1);
+                } else if (minutes > 0) {
+                    setMinutes((prevMinutes) => prevMinutes - 1);
+                    setSeconds(59);
+                } else if (hours > 0) {
+                    setHours((prevHours) => prevHours - 1);
+                    setMinutes(59);
+                    setSeconds(59);
+                } else {
+                    setActive(false); // Stop the timer when it reaches zero
+                }
             }, 1000);
+            return () => clearInterval(timer)
         }
-        return () => clearInterval(timeoutId);
-    }, [isRunning, hours, minutes, seconds]);
-
-    const handleRestart = () => {
-        setIsRunning(false);
-        setHours(0);
-        setMinutes(0);
-        setSeconds(0);
-    };
-
-    const handleStart = () => {
-        // Validate input before starting the timer
-        if (hours === 0 && minutes === 0 && seconds === 0) {
-            alert('Please enter a valid time greater than 0.');
-        } else {
-            setIsRunning(true);
-        }
-    };
-
+    }, [active, seconds, minutes, hours])
     return (
-        <div className='space-y-3 border p-4 rounded-md'>
-            <h1>Countdown Timer</h1>
-            <div className='space-y-3'>
-                <div className='max-w-[300px] mx-auto flex gap-2 justify-center'>
-                    <input 
-                        type="number" 
-                        min="0" 
-                        value={hours} 
-                        onChange={(e) => setHours(Number(e.target.value))} 
-                        placeholder='Hours' 
-                        className='w-28 text-2xl text-center rounded-md bg-transparent border' 
-                    />
-                    <input 
-                        type="number" 
-                        min="0" 
-                        value={minutes} 
-                        onChange={(e) => setMinutes(Number(e.target.value))} 
-                        placeholder='Minutes' 
-                        className='w-28 text-2xl text-center rounded-md bg-transparent border' 
-                    />
-                    <input 
-                        type="number" 
-                        min="0" 
-                        value={seconds} 
-                        onChange={(e) => setSeconds(Number(e.target.value))} 
-                        placeholder='Seconds' 
-                        className='w-28 text-2xl text-center rounded-md bg-transparent border' 
-                    />
-                </div>
-                <div className='space-x-2'>
-                    <button onClick={handleStart}>Start</button>
-                    <button onClick={() => setIsRunning(false)}>Pause</button>
-                    <button onClick={handleRestart}>Restart</button>
-                </div>
-                <p>
-                    {`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}
-                </p>
+        <div>
+            <div className='flex items-center gap-3 mb-4'>
+                <input type="number" value={hours} placeholder='00' onChange={(e) => setHours(e.target.value)} />
+                :
+                <input type="number" value={minutes} placeholder='00' onChange={(e) => setMinutes(e.target.value)} />
+                :
+                <input type="number" value={seconds} placeholder='00' onChange={(e) => setSeconds(e.target.value)} />
+            </div>
+            <div className='flex gap-4 justify-center'>
+                <button onClick={() => setActive(true)}>Start</button>
+                <button onClick={() => {
+                    setActive(false);
+                    setSeconds(0);
+                    setMinutes(0);
+                    setHours(0);
+                }}>Reset</button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default CountdownTimer;
+export default CountDown
