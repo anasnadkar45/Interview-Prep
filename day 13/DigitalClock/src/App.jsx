@@ -5,6 +5,7 @@ import CountDown from './CountDown'
 import DigitalClock from './DigitalClock'
 import DropDown from './DropDown'
 import FilterData from './FilterData'
+import GridLight from './GridLight'
 
 // const data = [
 //   {
@@ -37,7 +38,7 @@ function App() {
           <DropDown componentData={item} />
         ))}
       </div> */}
-
+      {/* <GridLight /> */}
     </>
   )
 }
