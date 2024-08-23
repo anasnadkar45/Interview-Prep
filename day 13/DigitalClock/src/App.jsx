@@ -1,4 +1,5 @@
 import Accordian from './Accordian'
+import Album from './Album'
 import './App.css'
 import Carousel from './Carousel'
 import CountDown from './CountDown'
@@ -6,6 +7,7 @@ import DigitalClock from './DigitalClock'
 import DropDown from './DropDown'
 import FilterData from './FilterData'
 import GridLight from './GridLight'
+import NestedComment from './NestedComment'
 
 // const data = [
 //   {
@@ -39,6 +41,8 @@ function App() {
         ))}
       </div> */}
       {/* <GridLight /> */}
+      {/* <NestedComment /> */}
+      <Album />
     </>
   )
 }
