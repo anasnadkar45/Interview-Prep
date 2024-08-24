@@ -33,7 +33,7 @@ function App() {
       {/* <DigitalClock /> */}
       {/* <CountDown /> */}
       {/* <FilterData /> */}
-      {/* <Accordian /> */}
+      <Accordian />
       {/* <Carousel /> */}
       {/* <div className='flex flex-col gap-2'>
         {data.map((item) => (
@@ -42,7 +42,7 @@ function App() {
       </div> */}
       {/* <GridLight /> */}
       {/* <NestedComment /> */}
-      <Album />
+      {/* <Album /> */}
     </>
   )
 }

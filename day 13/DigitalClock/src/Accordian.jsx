@@ -1,48 +1,56 @@
-import React, { useState } from 'react'
+import { useState } from "react";
 
-const Arr = [
-    {
-        id:1,
-        heading:'Header 1',
-        content:'Content 1',
-    },
-    {
-        id:2,
-        heading:'Header 2',
-        content:'Content 2',
-    },
-    {
-        id:3,
-        heading:'Header 3',
-        content:'Content 3',
-    },
-    {
-        id:4,
-        heading:'Header 4',
-        content:'Content 4',
-    },
-    {
-        id:5,
-        heading:'Header 5',
-        content:'Content 5',
-    },
-]
+const AccordianData = [
+  {
+    heading: "heading 1",
+    summary: "summary 1",
+  },
+  {
+    heading: "heading 2",
+    summary: "summary 2",
+  },
+  {
+    heading: "heading 3",
+    summary: "summary 3",
+  },
+];
 
-const Accordian = () => {
-    const [activeAccordian, setActiveAccordian] = useState(null);
-    const handleAccordian = (i) =>{
-        setActiveAccordian(i);
+export default function Accordian() {
+  const [isExpand, setIsExpand] = useState(null);
+  const expandAccordian = (index) => {
+    if(isExpand === index){
+        setIsExpand(null)
+    }else{
+        setIsExpand(index)
     }
+  };
   return (
-    <div>
-        {Arr.map((item)=>(
-            <div key={item.id}>
-                <h1 onClick={()=>handleAccordian(item.id)} className='bg-slate-900 p-4 border'>{item.heading}</h1>
-                <p>{activeAccordian === item.id && item.content}</p>
-            </div>
-        ))}
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      {AccordianData.map((accordian, index) => (
+        <div
+          style={{
+            width: "50%",
+            backgroundColor: "gainsboro",
+            borderRadius: "5px",
+            display: "flex",
+            placeItems: "baseline",
+          }}
+          onClick={() => {
+            expandAccordian(index);
+          }}
+        >
+          <input
+            type="checkbox"
+            onClick={(e) => e.stopPropagation()}
+            name=""
+            id=""
+          />
+          <div>
+            <h3>{accordian.heading}</h3>
+            <p>{isExpand === index && accordian.summary}</p>
+          </div>
+        </div>
+      ))}
     </div>
-  )
+  );
 }
-
-export default Accordian
