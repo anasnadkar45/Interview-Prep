@@ -10,6 +10,7 @@ import Folders from './Folders'
 import GridLight from './GridLight'
 import NestedComment from './NestedComment'
 import Stopwatch from './Stopwatch'
+import Todo from './Todo'
 import TrelloBoard from './TrelloBoard'
 
 // const data = [
@@ -48,7 +49,8 @@ function App() {
       {/* <NestedComment /> */}
       {/* <Album /> */}
       {/* <TrelloBoard /> */}
-      <Folders />
+      {/* <Folders /> */}
+      <Todo />
     </>
   )
 }
