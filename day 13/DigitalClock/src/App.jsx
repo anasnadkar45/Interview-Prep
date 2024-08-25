@@ -6,8 +6,11 @@ import CountDown from './CountDown'
 import DigitalClock from './DigitalClock'
 import DropDown from './DropDown'
 import FilterData from './FilterData'
+import Folders from './Folders'
 import GridLight from './GridLight'
 import NestedComment from './NestedComment'
+import Stopwatch from './Stopwatch'
+import TrelloBoard from './TrelloBoard'
 
 // const data = [
 //   {
@@ -33,7 +36,8 @@ function App() {
       {/* <DigitalClock /> */}
       {/* <CountDown /> */}
       {/* <FilterData /> */}
-      <Accordian />
+      {/* <Stopwatch /> */}
+      {/* <Accordian /> */}
       {/* <Carousel /> */}
       {/* <div className='flex flex-col gap-2'>
         {data.map((item) => (
@@ -43,6 +47,8 @@ function App() {
       {/* <GridLight /> */}
       {/* <NestedComment /> */}
       {/* <Album /> */}
+      {/* <TrelloBoard /> */}
+      <Folders />
     </>
   )
 }
