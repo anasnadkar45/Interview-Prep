@@ -5,14 +5,16 @@ export default function Todo() {
     const [input, setInput] = useState("");
     const [isAtoZ, setIsAtoZ] = useState(false);
     const [editableTodo, setEditableTodo] = useState(null);
-    const [editInput, setEditInput] = useState('')
+    const [editInput, setEditInput] = useState('');
+    const [searchInput, setSearchInput] = useState('');
+    const [debounceSearchInput, setDebounceSearchInput] = useState('');
+    
     const fetchTodos = async () => {
         const response = await fetch(
             "https://jsonplaceholder.typicode.com/todos?_limit=10"
         );
         const data = await response.json();
         setTodos(data);
-        console.log(data);
     };
 
     useEffect(() => {
@@ -59,8 +61,19 @@ export default function Todo() {
         setEditableTodo(null);
     }
 
+    useEffect(()=>{
+        let timer = setTimeout(()=>{
+            setDebounceSearchInput(searchInput);
+        },1000)
+        return () => clearTimeout(timer)
+    },[searchInput]);
+
+    const debouncedSortedTodos = sortedTodos.filter((todo) =>{
+        return todo.title.toLowerCase().includes(debounceSearchInput.toLocaleLowerCase());
+    })
+
     return (
-        <div>
+        <div className="w-fit mx-auto mt-8 space-y-2">
             <form onSubmit={AddTodoHandler}>
                 <input
                     type="text"
@@ -72,11 +85,15 @@ export default function Todo() {
             </form>
             <button onClick={() => setIsAtoZ(true)}>A-Z</button>
             <button onClick={() => setIsAtoZ(false)}>Z-A</button>
+            <input
+                type="text"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder="Search todos"
+            />
             <ul>
-                {sortedTodos.map((todo) => (
-                    <li
-                        key={todo.id}
-                    >
+                {debouncedSortedTodos.map((todo) => (
+                    <li key={todo.id}>
                         {
                             editableTodo === todo.id ? (
                                 <div >
@@ -84,9 +101,7 @@ export default function Todo() {
                                     <button onClick={() => saveEditedTodoHandler(todo.id)}>Save</button>
                                 </div>
                             ) : (
-                                <div onClick={() => {
-                                    editTodoHandler(todo.id);
-                                }}>
+                                <div onClick={() => editTodoHandler(todo.id)}>
                                     <p>{todo.title}</p>
                                 </div>
                             )

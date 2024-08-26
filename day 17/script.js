@@ -77,15 +77,59 @@
 //       },
 //     };
 //   }
-  
+
 //   const counter1 = createCounter();
 //   const counter2 = createCounter();
-  
+
 //   counter1.increment();
 //   counter1.increment();
 //   counter2.increment();
 //   counter1.reset();
 //   counter2.increment();
 //   counter1.increment();
-  
+
 //   1 2 1 0 2 1
+
+// console.log(a)
+// function scope() {
+//     var a = 2
+// }
+// scope();
+
+// var number = 0;
+// console.log(number)
+// const number2;
+// console.log(number2)
+
+
+// function Person () {
+//     this.name = 'John';
+//     this.age = 13;
+// }
+
+// const person1 = new Person();
+// person1.name = 'anas';
+
+// console.log(person1)
+
+// function Counter (count) {
+//     this.increment = function (){
+//         count++;
+//         console.log(count)
+//     }
+
+//     this.decrement = function (){
+//         count--;
+//         console.log(count)
+//     }
+// }
+
+// const counter1 = new Counter(5);
+// counter1.increment();
+
+// const counter2 = new Counter(5);
+// counter2.decrement();
+
+
+
+
