@@ -15,6 +15,7 @@ import Stopwatch from './Stopwatch'
 import TicTacToe from './TicTacToe'
 import Todo from './Todo'
 import TrelloBoard from './TrelloBoard'
+import Search from './Search'
 
 // const data = [
 //   {
@@ -62,7 +63,8 @@ function App() {
       {/* <Folders /> */}
       {/* <Todo /> */}
       {/* <CursorFollow /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <Search />
     </>
   )
 }
