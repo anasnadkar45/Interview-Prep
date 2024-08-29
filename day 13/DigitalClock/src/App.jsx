@@ -16,6 +16,7 @@ import TicTacToe from './TicTacToe'
 import Todo from './Todo'
 import TrelloBoard from './TrelloBoard'
 import Search from './Search'
+import Artical from './Artical'
 
 // const data = [
 //   {
@@ -64,7 +65,8 @@ function App() {
       {/* <Todo /> */}
       {/* <CursorFollow /> */}
       {/* <TicTacToe /> */}
-      <Search />
+      {/* <Search /> */}
+      <Artical />
     </>
   )
 }
