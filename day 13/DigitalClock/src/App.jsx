@@ -17,6 +17,7 @@ import Todo from './Todo'
 import TrelloBoard from './TrelloBoard'
 import Search from './Search'
 import Artical from './Artical'
+import KanbanBoard from './KanbanBoard'
 
 // const data = [
 //   {
@@ -66,7 +67,8 @@ function App() {
       {/* <CursorFollow /> */}
       {/* <TicTacToe /> */}
       {/* <Search /> */}
-      <Artical />
+      {/* <Artical /> */}
+      <KanbanBoard />
     </>
   )
 }
