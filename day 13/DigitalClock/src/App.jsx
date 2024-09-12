@@ -18,6 +18,7 @@ import TrelloBoard from './TrelloBoard'
 import Search from './Search'
 import Artical from './Artical'
 import KanbanBoard from './KanbanBoard'
+import AutoComplete from './AutoComplete'
 
 // const data = [
 //   {
@@ -68,7 +69,8 @@ function App() {
       {/* <TicTacToe /> */}
       {/* <Search /> */}
       {/* <Artical /> */}
-      <KanbanBoard />
+      {/* <KanbanBoard /> */}
+      <AutoComplete />
     </>
   )
 }
