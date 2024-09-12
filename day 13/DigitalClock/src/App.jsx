@@ -19,6 +19,7 @@ import Search from './Search'
 import Artical from './Artical'
 import KanbanBoard from './KanbanBoard'
 import AutoComplete from './AutoComplete'
+import TaskScheduler from './TaskScheduler'
 
 // const data = [
 //   {
@@ -70,7 +71,8 @@ function App() {
       {/* <Search /> */}
       {/* <Artical /> */}
       {/* <KanbanBoard /> */}
-      <AutoComplete />
+      {/* <AutoComplete /> */}
+      <TaskScheduler />
     </>
   )
 }
