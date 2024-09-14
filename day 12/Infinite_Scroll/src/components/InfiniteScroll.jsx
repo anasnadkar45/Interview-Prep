@@ -9,7 +9,7 @@ const InfiniteScroll = () => {
 
     const ref = useRef();
 
-    const fetchPosts = useCallback(async () => {
+    const fetchPosts = async () => {
         try {
             setLoading(true);
             const response = await fetch(`https://dummyjson.com/posts?limit=5&skip=${pages * 5}`);
@@ -20,17 +20,17 @@ const InfiniteScroll = () => {
                 setNoMorePosts(true); // Set noMorePosts to true
             }
 
-            setPosts((prev) => [...prev, ...data.posts]);
+            setPosts([...posts, ...data.posts]);
             setLoading(false);
         } catch (e) {
             console.error(e);
             setLoading(false);
         }
-    }, [pages]);
+    };
 
     useEffect(() => {
         fetchPosts();
-    }, [fetchPosts]);
+    }, [pages]);
 
     useEffect(() => {
         const options = {

@@ -1,31 +1,27 @@
-// Q1
-// function func1(){
-//     return 2
-// }
+const TodoInput = document.getElementById('todoInput');
+const TodoButton = document.getElementById('todoBtn');
+const TodoList = document.getElementById('todoList');
 
-// function func2(){
-//     return 4
-// }
+TodoButton.addEventListener('click', () => {
+  const TodoText = TodoInput.value;
+  
+  if (TodoText === '') {
+    alert('Please enter a task'); // Ensure input is not empty
+    return;
+  }
 
-// let a = (func1(), func2());
-// console.log(a);
+  const todoItem = document.createElement('li');
+  todoItem.innerText = TodoText;
 
-// Q2
+  const deleteButton = document.createElement('button')
+  deleteButton.innerText = 'Delete';
 
-// const arr = ['one', 'two', 'three', 'four'];
-// const str = 'Hello';
+  deleteButton.addEventListener('click', () => {
+    TodoList.removeChild(todoItem);
+  })
 
-// const res  = arr.includes('on');
-// const anotherVar = arr.includes('oneTwo');
-// const newVar = str.includes('ll');
-// console.log(newVar);
+  todoItem.appendChild(deleteButton);
+  TodoList.appendChild(todoItem);
 
-// Q3
-// let a = {name : 'anas'};
-// let z = {...a};
-// z.name = 'vedant';
-// console.log(a);
-
-// Q4
-console.log(+true);
-console.log(!'xyz');
+  TodoInput.value = ''
+});

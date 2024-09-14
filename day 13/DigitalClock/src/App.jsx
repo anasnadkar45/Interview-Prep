@@ -20,6 +20,7 @@ import Artical from './Artical'
 import KanbanBoard from './KanbanBoard'
 import AutoComplete from './AutoComplete'
 import TaskScheduler from './TaskScheduler'
+import MultiSelectInput from './MultiSelectInput'
 
 // const data = [
 //   {
@@ -72,7 +73,8 @@ function App() {
       {/* <Artical /> */}
       {/* <KanbanBoard /> */}
       {/* <AutoComplete /> */}
-      <TaskScheduler />
+      {/* <TaskScheduler /> */}
+      {/* <MultiSelectInput /> */}
     </>
   )
 }
