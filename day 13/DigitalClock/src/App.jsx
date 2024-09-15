@@ -21,6 +21,7 @@ import KanbanBoard from './KanbanBoard'
 import AutoComplete from './AutoComplete'
 import TaskScheduler from './TaskScheduler'
 import MultiSelectInput from './MultiSelectInput'
+import Table from './Table'
 
 // const data = [
 //   {
@@ -75,6 +76,7 @@ function App() {
       {/* <AutoComplete /> */}
       {/* <TaskScheduler /> */}
       {/* <MultiSelectInput /> */}
+      <Table />
     </>
   )
 }
