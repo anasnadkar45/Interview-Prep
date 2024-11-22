@@ -22,6 +22,9 @@ import AutoComplete from './AutoComplete'
 import TaskScheduler from './TaskScheduler'
 import MultiSelectInput from './MultiSelectInput'
 import Table from './Table'
+import Callback from './Callback'
+import InfiniteScroll from './InfiniteScroll'
+import TraficLight from './TraficLight'
 
 // const data = [
 //   {
@@ -76,7 +79,10 @@ function App() {
       {/* <AutoComplete /> */}
       {/* <TaskScheduler /> */}
       {/* <MultiSelectInput /> */}
-      <Table />
+      {/* <Table /> */}
+      {/* <Callback /> */}
+      {/* <InfiniteScroll /> */}
+      <TraficLight />
     </>
   )
 }

@@ -13,6 +13,7 @@ const Table = () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
         const result = await response.json();
         setData(result);
+        console.log('fetched rendered')
     }
 
     useEffect(() => {
@@ -29,6 +30,8 @@ const Table = () => {
             ...prevUser,
             [name]: value
         }))
+
+        console.log('input rendered')
     }
 
     const handleSubmit = (e) => {
@@ -59,6 +62,8 @@ const Table = () => {
                 { id: id, isChecked: isChecked }
             ]))
         }
+
+        console.log('checkbox rerendered')
     }
 
     const deleteHandler = () => {
@@ -66,6 +71,7 @@ const Table = () => {
         const newData = data.filter((dataItem) => !idsToDelete.includes(dataItem.id));
         setData(newData);
         setEdit([]);
+        console.log('delete rerendderred')
     }
     console.log(data);
     return (
