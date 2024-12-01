@@ -5,6 +5,7 @@ import { Throttle } from './components/Throttle/Throttle'
 import { VirtulizedList } from './components/VirtulizedList/VirtulizedList'
 import { ProgressBar } from './components/progresBar/ProgressBar'
 import { Pagination } from './components/pagination/Pagination'
+import { ScoreCard } from './components/ScoreCard/ScoreCard'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
@@ -17,7 +18,8 @@ const App = () => {
       {/* <Throttle /> */}
       {/* <VirtulizedList list={List}/> */}
       {/* <ProgressBar /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <ScoreCard />
     </div>
   )
 }
