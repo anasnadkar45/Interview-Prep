@@ -9,13 +9,14 @@ import { ScoreCard } from './components/ScoreCard/ScoreCard'
 import { Accordion } from './components/accordion/Accordion'
 import { AutoComplete } from './components/AutoComplete/AutoComplete'
 import { Mention } from './components/Mention/Mention'
+import { BookMyShow } from './components/BookMyShow/BookMyShow'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
 
 const App = () => {
   return (
-    <div style={{ width: '100vw', height: '100vh', display:'flex',justifyContent:'center',alignItems:'center' }}>
+    <div style={{ minWidth: '100vw', minHeight: '100vh', display:'flex',justifyContent:'center',alignItems:'center' }}>
       {/* <Cart /> */}
       {/* <CountDown /> */}
       {/* <Throttle /> */}
@@ -25,7 +26,8 @@ const App = () => {
       {/* <ScoreCard /> */}
       {/* <Accordion /> */}
       {/* <AutoComplete /> */}
-      <Mention />
+      {/* <Mention /> */}
+      <BookMyShow />
     </div>
   )
 }
