@@ -1,0 +1,35 @@
+{
+    "comments": {
+      "1": {
+        "id": 1,
+        "parentId": null,
+        "value": "Hey, How are you?",
+        "children": [2, 3]
+      },
+      "2": {
+        "id": 2,
+        "parentId": 1,
+        "value": "I'm good, how about you?",
+        "children": [4]
+      },
+      "3": {
+        "id": 3,
+        "parentId": 1,
+        "value": "Long time no see!",
+        "children": []
+      },
+      "4": {
+        "id": 4,
+        "parentId": 2,
+        "value": "Doing great, thanks for asking!",
+        "children": [5]
+      },
+      "5": {
+        "id": 5,
+        "parentId": 4,
+        "value": "We should catch up sometime soon.",
+        "children": []
+      }
+    }
+  }
+  

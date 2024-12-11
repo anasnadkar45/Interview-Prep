@@ -10,13 +10,16 @@ import { Accordion } from './components/accordion/Accordion'
 import { AutoComplete } from './components/AutoComplete/AutoComplete'
 import { Mention } from './components/Mention/Mention'
 import { BookMyShow } from './components/BookMyShow/BookMyShow'
+import { Calendar } from './components/Calander/Calendar'
+import { NestedComments } from './components/NestedComments/NestedComments'
+import { TrafficLight } from './components/TrafficLight/TrafficLight'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
 
 const App = () => {
   return (
-    <div style={{ minWidth: '100vw', minHeight: '100vh', display:'flex',justifyContent:'center',alignItems:'center' }}>
+    <div style={{ minWidth: '100vw', minHeight: '100vh',  }}>
       {/* <Cart /> */}
       {/* <CountDown /> */}
       {/* <Throttle /> */}
@@ -27,7 +30,10 @@ const App = () => {
       {/* <Accordion /> */}
       {/* <AutoComplete /> */}
       {/* <Mention /> */}
-      <BookMyShow />
+      {/* <BookMyShow /> */}
+      {/* <Calendar /> */}
+      {/* <NestedComments /> */}
+      <TrafficLight />
     </div>
   )
 }
