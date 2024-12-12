@@ -13,6 +13,8 @@ import { BookMyShow } from './components/BookMyShow/BookMyShow'
 import { Calendar } from './components/Calander/Calendar'
 import { NestedComments } from './components/NestedComments/NestedComments'
 import { TrafficLight } from './components/TrafficLight/TrafficLight'
+import { GridLight } from './components/GridLight/GridLight'
+import { PhotoAlbum } from './components/PhotoAlbum/PhotoAlbum'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
@@ -33,7 +35,9 @@ const App = () => {
       {/* <BookMyShow /> */}
       {/* <Calendar /> */}
       {/* <NestedComments /> */}
-      <TrafficLight />
+      {/* <TrafficLight /> */}
+      {/* <GridLight /> */}
+      <PhotoAlbum />
     </div>
   )
 }
