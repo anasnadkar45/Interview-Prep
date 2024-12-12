@@ -15,13 +15,14 @@ import { NestedComments } from './components/NestedComments/NestedComments'
 import { TrafficLight } from './components/TrafficLight/TrafficLight'
 import { GridLight } from './components/GridLight/GridLight'
 import { PhotoAlbum } from './components/PhotoAlbum/PhotoAlbum'
+import { AdvanceSearch } from './components/AdvanceSearch/AdvanceSearch'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
 
 const App = () => {
   return (
-    <div style={{ minWidth: '100vw', minHeight: '100vh',  }}>
+    <div style={{ minWidth: '100vw', minHeight: '100vh', display:'flex', justifyContent:'center' }}>
       {/* <Cart /> */}
       {/* <CountDown /> */}
       {/* <Throttle /> */}
@@ -37,7 +38,8 @@ const App = () => {
       {/* <NestedComments /> */}
       {/* <TrafficLight /> */}
       {/* <GridLight /> */}
-      <PhotoAlbum />
+      {/* <PhotoAlbum /> */}
+      <AdvanceSearch />
     </div>
   )
 }
