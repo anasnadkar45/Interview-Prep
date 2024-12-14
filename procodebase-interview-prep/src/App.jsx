@@ -16,13 +16,15 @@ import { TrafficLight } from './components/TrafficLight/TrafficLight'
 import { GridLight } from './components/GridLight/GridLight'
 import { PhotoAlbum } from './components/PhotoAlbum/PhotoAlbum'
 import { AdvanceSearch } from './components/AdvanceSearch/AdvanceSearch'
+import { Toast } from './components/Toast/Toast'
+import { Comments } from './components/Comments/Comments'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
 
 const App = () => {
   return (
-    <div style={{ minWidth: '100vw', minHeight: '100vh', display:'flex', justifyContent:'center' }}>
+    <div>
       {/* <Cart /> */}
       {/* <CountDown /> */}
       {/* <Throttle /> */}
@@ -39,7 +41,9 @@ const App = () => {
       {/* <TrafficLight /> */}
       {/* <GridLight /> */}
       {/* <PhotoAlbum /> */}
-      <AdvanceSearch />
+      {/* <AdvanceSearch /> */}
+      {/* <Toast /> */}
+      <Comments />
     </div>
   )
 }
