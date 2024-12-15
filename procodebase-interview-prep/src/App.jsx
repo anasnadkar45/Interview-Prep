@@ -43,7 +43,8 @@ const App = () => {
       {/* <PhotoAlbum /> */}
       {/* <AdvanceSearch /> */}
       {/* <Toast /> */}
-      <Comments />
+      {/* <Comments /> */}
+      <Pagination />
     </div>
   )
 }
