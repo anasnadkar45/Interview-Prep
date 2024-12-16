@@ -353,3 +353,22 @@
 
 // -----------------------------------------------------------
 
+Array.prototype.myFilter = function (cbFn){
+    let temp = [];
+    for(let i=0; i<this.length; i++){
+        if(cbFn(this[i], i, this )){
+            temp.push(this[i])
+        }
+    }
+    return temp
+}
+
+const array = [1,2,3,4,5,6,7,8,9,10,11];
+
+const cbFn = (element,i,arr) =>{
+    if(element % 2 === 0){
+        return element
+    }
+}
+const exp1 = array.myFilter(cbFn);
+console.log(exp1)
