@@ -18,6 +18,8 @@ import { PhotoAlbum } from './components/PhotoAlbum/PhotoAlbum'
 import { AdvanceSearch } from './components/AdvanceSearch/AdvanceSearch'
 import { Toast } from './components/Toast/Toast'
 import { Comments } from './components/Comments/Comments'
+import { UseReducer } from './components/UseReducer/UseReducer'
+import { UseMemo } from './components/UseMemo/UseMemo'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
@@ -44,7 +46,9 @@ const App = () => {
       {/* <AdvanceSearch /> */}
       {/* <Toast /> */}
       {/* <Comments /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      {/* <UseReducer /> */}
+      {/* <UseMemo /> */}
     </div>
   )
 }
