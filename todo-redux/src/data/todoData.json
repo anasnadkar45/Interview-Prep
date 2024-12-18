@@ -1,0 +1,18 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "text": "I am First Todo",
+            "completed": false,
+            "assignes": [],
+            "difficulty": "easy"
+        },
+        {
+            "id": 2,
+            "text": "I am Second Todo",
+            "completed": true,
+            "assignes": ["anas","shadab"],
+            "difficulty": "hard"
+        }
+    ]
+}
