@@ -353,22 +353,202 @@
 
 // -----------------------------------------------------------
 
-Array.prototype.myFilter = function (cbFn){
-    let temp = [];
-    for(let i=0; i<this.length; i++){
-        if(cbFn(this[i], i, this )){
-            temp.push(this[i])
-        }
-    }
-    return temp
-}
+// Array.prototype.myFilter = function (cbFn){
+//     let temp = [];
+//     for(let i=0; i<this.length; i++){
+//         if(cbFn(this[i], i, this )){
+//             temp.push(this[i])
+//         }
+//     }
+//     return temp
+// }
 
-const array = [1,2,3,4,5,6,7,8,9,10,11];
+// const array = [1,2,3,4,5,6,7,8,9,10,11];
 
-const cbFn = (element,i,arr) =>{
-    if(element % 2 === 0){
-        return element
-    }
-}
-const exp1 = array.myFilter(cbFn);
-console.log(exp1)
+// const cbFn = (element,i,arr) =>{
+//     if(element % 2 === 0){
+//         return element
+//     }
+// }
+// const exp1 = array.myFilter(cbFn);
+// console.log(exp1)
+
+
+//-----------------------------------------------------------
+
+// foo();
+// var foo = 100;
+
+// function foo(){
+//     console.log('calling foo');
+// }
+
+// foo();
+
+// ----------------------------------------------------------------
+
+// const arr = [1, 2, 3, 4, 5];
+
+// const result = arr.reduce((acc, currentNumber)=>{
+//     // acc.push(currentNumber*2)
+//     // return acc;
+//     acc<currentNumber
+//     return acc
+// });
+
+// console.log(result);
+
+// ----------------------------------------------------------------
+
+// var a = 10
+
+// function fun(){
+//     console.log(a);
+//     var a = 20;
+//     return a;
+// }
+
+// console.log(fun());
+
+// ----------------------------------------------------------------
+
+// function outer (){
+//     return function (){
+//         console.log('inner')
+//     }
+// }
+
+// const inner = outer();
+// console.log(inner())
+
+// ----------------------------------------------------------------
+
+// const arr = [1, 2, 3, 4, 5]
+
+// while(arr.length > 0){
+//     arr.pop();
+// }
+
+// console.log(arr)
+
+// ----------------------------------------------------------------
+
+// function add(val1) {
+//     return function (val2) {
+//         if (!val2) {
+//             return val1;
+//         }
+//         return add(val1 + val2);
+//     }
+// }
+
+// const result = add(2)(1)(2)(3)()
+// console.log(result)
+
+// ----------------------------------------------------------------
+
+// function debounce(func, delay) {
+//     let timerId; // Holds the reference to the timer
+
+//     return function (...args) {
+//         // Clear the previous timer each time the function is called
+//         if (timerId) {
+//             clearTimeout(timerId);
+//         }
+
+//         // Set a new timer with the specified delay
+//         timerId = setTimeout(() => {
+//             func.apply(this, args);
+//         }, delay);
+//     };
+// }
+
+// // Example usage
+// const searchHandler = debounce((query) => {
+//     console.log(`Searching for: ${query}`);
+// }, 500);
+
+// // Simulating user input
+// console.log(searchHandler("React Debounce"))
+
+
+// ----------------------------------------------------------------
+
+// function findMethod() {
+//     let arr = [{ id: 1, name: "sai" }, { id: 2, name: "krishna" }];
+//     let data = arr.findIndex(x => x.name == 2)
+//     console.log(data)
+// }
+// findMethod()
+
+// ----------------------------------------------------------------
+
+// const name1 = {
+//     fName : 'anas',
+//     lName: 'Nadkar',
+// }
+
+// const name2 = {
+//     fName : 'sara',
+//     lName: 'Nadkar',
+// }
+
+// const fullName = function(thirdParams, message){
+//     console.log(this.fName, this.lName, message)
+// }
+
+// fullName.call(name1, name2, "hello")
+
+// function Student() {
+//     this.name = "Saikrishna",
+//         this.exp = "8"
+// }
+// Student.prototype.company = "Hexagon"
+// let std1 = new Student();
+// std1.exp = "9"
+// std1.company = "Hexagon"
+// let std2 = new Student();
+// std2.exp = "10"
+// console.log(std1);
+// console.log(std2)
+
+// const div = document.querySelector("div");
+// const form = document.querySelector("form");
+// const button = document.querySelector("button");
+
+// div.addEventListener('click',function(event) {
+//     alert("currentTarget" + event.currentTarget.tagName + "target" + event.target.tagName);
+// },true);
+// form.addEventListener('click',function(event) {
+//     alert("currentTarget" + event.currentTarget.tagName + "target" + event.target.tagName);
+// },true);
+// button.addEventListener('click',function(event) {
+//     alert("currentTarget" + event.currentTarget.tagName + "target" + event.target.tagName);
+// },true);
+
+// function handleClick(event) {
+//     alert("currentTarget" + event.currentTarget.tagName + "target" + event.target.tagName);
+// }
+
+// function handleFormClick(event) {
+//     alert("currentTarget" + event.currentTarget.tagName + "target" + event.target.tagName);
+//     // event.stopPropagation();
+// }
+
+
+// -------------------------------------------------------
+
+const items = [
+    {id: 1, name: 'apple', category: 'fruit'},
+    {id: 1, name: 'banana', category: 'fruit'},
+    {id: 1, name: 'carrot', category: 'vegetable'},
+    {id: 1, name: 'chicken', category: 'meat'},
+    {id: 1, name: 'cucumber', category: 'vegetable'},
+]
+
+const categoryCount = items.reduce((count, item) =>{
+    count[item.category] = (count[item.category] | 0) + 1;
+    return count;
+},{})
+
+console.log(categoryCount)
