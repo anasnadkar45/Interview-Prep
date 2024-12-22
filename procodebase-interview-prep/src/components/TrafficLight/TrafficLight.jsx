@@ -8,27 +8,19 @@ const config = {
 export const TrafficLight = () => {
     const [currentColor, setCurrentColor] = useState('red');
 
-    console.log(config[currentColor].next)
-    useEffect(() => {
-        const timer = setTimeout(() => {
+    console.log(config[currentColor]);
+    useEffect(()=>{
+        let timer = setTimeout(()=>{
             setCurrentColor(config[currentColor].next)
-        }, config[currentColor].duration)
+        }, config[currentColor].duration);
 
-        return () => clearTimeout(timer)
-    }, [currentColor])
-
-    console.log(Object.entries(config))
+        return ()=> clearTimeout(timer);
+    },[currentColor]);
     return (
-        <div>
-            <div style={{ width: '200px', border: '1px solid black' }}>
-                {Object.entries(config).map(([key, value]) => ({ name: key, ...value })).map((color) => (
-                    <div style={{
-                        width: '200px',
-                        height: '200px',
-                        border: '1px solid black',
-                        borderRadius: '50%',
-                        backgroundColor: color.name === currentColor ? color.color : ''
-                    }}></div>
+        <div style={{width:'100vw', height:'100vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <div style={{ width: '100px', border: '1px solid black' }}>
+                {Object.entries(config).map((item) => (
+                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', border: '1px solid black', backgroundColor: item[0] === currentColor ? currentColor : '' }}></div>
                 ))}
             </div>
         </div>

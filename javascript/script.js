@@ -538,17 +538,298 @@
 
 // -------------------------------------------------------
 
-const items = [
-    {id: 1, name: 'apple', category: 'fruit'},
-    {id: 1, name: 'banana', category: 'fruit'},
-    {id: 1, name: 'carrot', category: 'vegetable'},
-    {id: 1, name: 'chicken', category: 'meat'},
-    {id: 1, name: 'cucumber', category: 'vegetable'},
-]
+// const items = [
+//     {id: 1, name: 'apple', category: 'fruit'},
+//     {id: 1, name: 'banana', category: 'fruit'},
+//     {id: 1, name: 'carrot', category: 'vegetable'},
+//     {id: 1, name: 'chicken', category: 'meat'},
+//     {id: 1, name: 'cucumber', category: 'vegetable'},
+// ]
 
-const categoryCount = items.reduce((count, item) =>{
-    count[item.category] = (count[item.category] | 0) + 1;
-    return count;
-},{})
+// const categoryCount = items.reduce((count, item) =>{
+//     count[item.category] = (count[item.category] | 0) + 1;
+//     return count;
+// },{})
 
-console.log(categoryCount)
+// console.log(categoryCount)
+
+// ----------------------------------------------------------------
+
+// const nestedArray = [[1, 2], [3, 4], [5, [6, 7]]];
+
+// const singleArray =  nestedArray.reduce((array, curr)=>{
+//     return array.concat(Array.isArray(curr) ? curr.flat(Infinity) : curr);
+// },[])
+
+// console.log(singleArray)
+
+// ----------------------------------------------------------------
+
+// const people = [
+//     { name: 'Alice', age: 25 },
+//     { name: 'Bob', age: 30 },
+//     { name: 'Charlie', age: 25 },
+// ];
+
+// // Group the people by their age using the reduce method.
+
+// const groupedPeople = people.reduce((age, person)=>{
+//     if(!age[person.age]){
+//         age[person.age] =  [];
+//     }
+
+//     age[person.age].push(person);
+//     return age;
+// },{});
+
+// console.log(groupedPeople);
+
+// ----------------------------------------------------------------
+
+// const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+
+// // Expected Output: { apple: 3, banana: 2, orange: 1 }
+
+// const fruitOccurence = fruits.reduce((acc, fruit)=>{
+//    acc[fruit] = (acc[fruit] | 0) + 1;
+//    return acc;
+// },{})
+
+// console.log(fruitOccurence);
+
+// ----------------------------------------------------------------
+
+// const items = [
+//     { name: 'Book', price: 12.99 },
+//     { name: 'Pen', price: 1.49 },
+//     { name: 'Notebook', price: 5.99 }
+// ];
+
+// const totalAmount = items.reduce((acc, item)=>{
+//     acc += item.price;
+//     return acc
+// },0)
+
+// console.log(totalAmount);
+
+// ----------------------------------------------------------------
+
+// const data = [
+//     { id: 1, value: 10 },
+//     { id: 2, value: 20 },
+//     { id: 1, value: 15 },
+//     { id: 3, value: 30 }
+// ];
+
+// const mergedArray = data.reduce((acc, curr)=>{
+//     acc[curr.id] = (acc[curr.id] | 0) + curr.value;
+//     return acc;
+// },{})
+
+// console.log(mergedArray)
+
+// ----------------------------------------------------------------
+// function multiply(val1){
+//     return function (val2){
+//         if(!val2){
+//             return val1
+//         }
+//         return multiply(val1 * val2);
+//     }
+// }
+
+// const result = multiply(2)(2)(4)()
+// console.log(result)
+
+// ----------------------------------------------------------------
+
+// const array = [1,2,3,4,5];
+
+// Array.prototype.myFind = function (cbFn) {
+//     for(let i=0; i<this.length; i++){
+//         if(cbFn(this[i], i, this)){
+//             return this[i];
+//         }
+//     }
+// }
+// const exp1 = array.myFind((element, i, array,) => {
+//     if (element === 6) {
+//         return element;
+//     }
+// });
+
+// console.log(exp1)
+// console.log(array.find((item)=>item.value === 1));
+
+
+// ----------------------------------------------------------------
+// const array = [1,2,3,4,5];
+
+// Array.prototype.myFind = function (cbFn) {
+//     let temp = [];
+//     for(let i=0; i<this.length; i++){
+//         if(cbFn(this[i], i, this)){
+//             temp.push(this[i]);
+//         }
+//     }
+//     return temp;
+// }
+// const exp1 = array.myFind((element, i, array,) => {
+//     if (element >= 3) {
+//         return element;
+//     }
+// });
+
+// console.log(exp1)
+
+// ----------------------------------------------------------------
+
+// promises
+// function firstName(value) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`firstName: ${value}`);
+//         }, 1000)
+//     })
+// }
+
+// function secondName(value) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             reject(`secondName: ${value}`);
+//         }, 100)
+//     })
+// }
+
+// function lastName(value) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`lastName: ${value}`);
+//         }, 1000)
+//     })
+// }
+
+// Promise.any([
+//     firstName('anas'),
+//     secondName('javed'),
+//     lastName('nadkar')
+// ]).then((res) => {
+//     console.log(res);
+// }).catch((err) => {
+//     console.error(err);
+// }).finally(()=>{
+//     console.log('done');
+// })
+
+// ----------------------------------------------------------------
+
+// shallow copy
+
+// let originalArray = [1, 2, [3, 4]];
+// let shallowCopy = originalArray
+// shallowCopy[1] = 100;
+// console.log(originalArray);
+
+// let originalArray2 = [1, 2, [3, 4]];
+// let deepCopy = [...originalArray2]
+// deepCopy[1] = 100;
+// console.log(originalArray2);
+
+// ----------------------------------------------------------------
+
+// const arr = [1,3,'z',4,'e'];
+
+// let characters = [];
+// let numbers = [];   
+
+// arr.forEach(element => {
+//     if(typeof element === 'string'){
+//         characters.push(element);
+//     }else{
+//         numbers.push(element);
+//     }
+// });
+
+// console.log(characters)
+// console.log(numbers)
+
+// ----------------------------------------------------------------
+
+// function debounce(func, delay) {
+//     let timerId;
+
+//     return function (...args) {
+//         // Clear the previous timer if the function is called again
+//         clearTimeout(timerId);
+
+//         // Set a new timer
+//         timerId = setTimeout(() => {
+//             func(args);
+//         }, delay);
+//     };
+// }
+
+// const search = (query) => {
+//     console.log(`Searching for: ${query}`);
+// };
+
+// const debouncedSearch = debounce(search, 500);
+
+// const inputElement = document.getElementById("searchInput");
+// inputElement.addEventListener("input", (event) => {
+//     debouncedSearch(event.target.value);
+// });
+
+
+// --------
+
+// function throttle(func, limit) {
+//     let lastCall = 0;
+
+//     return function (...args) {
+//       const now = Date.now();
+
+//       if (now - lastCall >= limit) {
+//         lastCall = now;
+//         func.apply(this, args);
+//       }
+//     };
+//   }
+
+//   // Example usage:
+//   const handleScroll = () => {
+//     console.log("Scroll event fired!", Date.now());
+//   };
+
+//   const throttledScroll = throttle(handleScroll, 1000);
+
+//   window.addEventListener("scroll", throttledScroll);
+
+// ----------------------------------------------------------------
+
+// let count = 0;
+
+// const nums = [0,2,3,4];
+
+// nums.forEach((num)=>{
+//     if(num){
+//         count = count + 1
+//     }
+// })
+
+// console.log("Count: " + count)
+
+
+// ----------------------------------------------------------------
+
+// const obj = {
+//     a: 1,
+//     b: 2,
+//     "c": 3,
+//     b: 4,
+// }
+
+// console.log(obj)
+
+console.log(!"hello");
+console.log(+false);

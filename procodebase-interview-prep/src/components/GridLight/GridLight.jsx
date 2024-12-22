@@ -5,44 +5,45 @@ const boxes = [
     1, 1, 1
 ];
 export const GridLight = () => {
-    const [gridSequence, setGridSequence] = useState([]);
-    const [isRemoveIndex, setIsRemoveIndex] = useState(false);
+    const [tiles, setTiles] = useState([]);
+    const [isRemoveTiles, setIsRemoveTiles] = useState(false)
 
-    const handleGridLight = (index) => {
-        if (!gridSequence.includes(index) && !isRemoveIndex) {
-            setGridSequence([...gridSequence, index]);
-            if (gridSequence.length === 7) {
-                setIsRemoveIndex(true);
+    const handleTiles = (boxId) => {
+        if (!tiles.includes(boxId) && !isRemoveTiles) {
+            setTiles([...tiles, boxId]);
+            if (tiles.length === 7) {
+                setIsRemoveTiles(true);
             }
         }
     }
 
     useEffect(() => {
-        if (isRemoveIndex) {
+        if (isRemoveTiles) {
             let timer = setTimeout(() => {
-                setGridSequence((prevGridSequence) => {
-                    if (prevGridSequence.length === 0) {
-                        clearTimeout(timer);
-                        setIsRemoveIndex(false)
-                        return prevGridSequence;
+                setTiles((prevTiles) => {
+                    if (prevTiles.length === 0) {
+                        clearTimeout(timer)
+                        setIsRemoveTiles(false);
+                        return prevTiles
                     }
-                    return gridSequence.slice(0, -1);
+
+                    return tiles.slice(0, -1)
                 })
             }, 1000);
-            return () => clearTimeout(timer);
+
+            return () => clearTimeout(timer)
         }
+    }, [tiles, isRemoveTiles])
 
-    }, [gridSequence, isRemoveIndex, setIsRemoveIndex])
-
-    console.log(gridSequence)
+    console.log(tiles);
     return (
-        <div style={{ height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 100px)', gap: '10px' }}>
-                {boxes.map((box, i) => (
+        <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '10px' }}>
+                {boxes.map((box, id) => (
                     box === 1 ? (
-                        <div key={i} onClick={() => handleGridLight(i)} style={{ width: '100px', height: '100px', border: '1px solid black', backgroundColor: gridSequence.includes(i) ? 'yellow' : '' }}></div>
+                        <div onClick={() => handleTiles(id)} key={id} style={{ width: '100px', height: '100px', border: '1px solid black', backgroundColor: tiles.includes(id) ? 'yellow' : '' }}></div>
                     ) : (
-                        <div key={i} style={{ width: '100px', height: '100px' }}></div>
+                        <div style={{ width: '100px', height: '100px' }}></div>
                     )
                 ))}
             </div>
