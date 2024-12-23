@@ -47,7 +47,7 @@ const App = () => {
       {/* <Toast /> */}
       {/* <Comments /> */}
       {/* <Pagination /> */}
-      {/* <UseReducer /> */}
+      <UseReducer />
       {/* <UseMemo /> */}
     </div>
   )
