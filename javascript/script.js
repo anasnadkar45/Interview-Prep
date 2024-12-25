@@ -831,5 +831,74 @@
 
 // console.log(obj)
 
-console.log(!"hello");
-console.log(+false);
+// console.log(!"hello");
+// console.log(+false);
+
+
+// ----------------------------------------------------------------
+
+// const arr = [
+//     { id: 1, name: 'anas', age: 21 },
+//     { id: 2, name: 'sara', age: 17 },
+//     { id: 3, name: 'vedant', age: 21 },
+//     { id: 4, name: 'baktiyar', age: 23 },
+//     { id: 5, name: 'asmer', age: 21 }
+// ];
+
+// const newArray = arr.reduce((acc, curr)=>{
+//     if(!acc[curr.age]){
+//         acc[curr.age] = [];
+//     }
+//     acc[curr.age].push(curr);
+//     return acc;
+// })
+
+// console.log(newArray);
+
+// ----------------------------------------------------------------
+
+// const employees = [
+//     {
+//         empId: 1,
+//         name: 'John',
+//         age: 34,
+//     },
+//     {
+//         empId: 2,
+//         name: 'sara',
+//         age: 29,
+//     },
+//     {
+//         empId: 3,
+//         name: 'anas',
+//         age: 24,
+//     },
+//     {
+//         empId: 4,
+//         name: 'nadkar',
+//         age: 43,
+//     },
+// ]
+
+// function getEmployee(id){
+//     const employee = employees.find((employee) => employee.empId === id)
+//     if(!employee){
+//         return "no employee found"
+//     }
+//     return employee;
+// }
+
+// console.log(getEmployee(6));
+
+// ----------------------------------------------------------------
+
+const arr1 = [1,2,3,4,5];
+const arr2 = [6,7,8,9,10,11];
+
+function mergeArray(arr1, arr2) {
+    if(arr1.length > 0 && arr2.length > 0) {
+        return [...arr1, ...arr2];
+    }
+}
+
+console.log(mergeArray(arr1, arr2));
