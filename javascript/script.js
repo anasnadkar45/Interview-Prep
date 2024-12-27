@@ -892,13 +892,46 @@
 
 // ----------------------------------------------------------------
 
-const arr1 = [1,2,3,4,5];
-const arr2 = [6,7,8,9,10,11];
+// const arr1 = [1,2,3,4,5];
+// const arr2 = [6,7,8,9,10,11];
 
-function mergeArray(arr1, arr2) {
-    if(arr1.length > 0 && arr2.length > 0) {
-        return [...arr1, ...arr2];
+// function mergeArray(arr1, arr2) {
+//     if(arr1.length > 0 && arr2.length > 0) {
+//         return [...arr1, ...arr2];
+//     }
+// }
+
+// console.log(mergeArray(arr1, arr2));
+
+// ----------------------------------------------------------------------
+
+
+// console.log(a);
+// let a = 10;
+// console.log(a);
+
+// const arr = [0,0,0,1,2,3,4];
+
+// const newArr = arr.map((num)=>{
+//     if(typeof num === 'number'){
+//         return num
+//     }
+// })
+
+// console.log(newArr)
+
+// ----------------------------------------------------------------
+
+Array.prototype.myMap = function (cbFn){
+    const temp = [];
+    for(let i=0; i<this.length; i++){
+        temp.push(cbFn(this[i],i,this))
     }
+    return temp
 }
 
-console.log(mergeArray(arr1, arr2));
+const array = [1,2,3,4,5]
+const exp1 = array.myMap(function(element, index, array){
+    return element * 2
+})
+console.log(exp1)
