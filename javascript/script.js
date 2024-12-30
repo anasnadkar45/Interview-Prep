@@ -922,16 +922,133 @@
 
 // ----------------------------------------------------------------
 
-Array.prototype.myMap = function (cbFn){
-    const temp = [];
-    for(let i=0; i<this.length; i++){
-        temp.push(cbFn(this[i],i,this))
-    }
-    return temp
-}
+// Array.prototype.myMap = function (cbFn){
+//     const temp = [];
+//     for(let i=0; i<this.length; i++){
+//         temp.push(cbFn(this[i],i,this))
+//     }
+//     return temp
+// }
 
-const array = [1,2,3,4,5]
-const exp1 = array.myMap(function(element, index, array){
-    return element * 2
-})
-console.log(exp1)
+// const array = [1,2,3,4,5]
+// const exp1 = array.myMap(function(element, index, array){
+//     return element * 2
+// })
+// console.log(exp1)
+
+// ----------------------------------------------------------------
+// let a = {}
+// let b = {key:'b'}
+// let c = {key:'c'}
+// a[b] = 100;
+// b[c] = 200;
+// console.log(a[b])
+
+// ----------------------------------------------------------------
+// var a = 10;
+// {
+//     var a = -10;
+// }
+
+// let b = a;
+
+// {
+//     let b = -20;
+// }
+
+// console.log(b);
+
+// ----------------------------------------------------------------
+
+// a = 10
+// let a;
+// console.log(a);
+
+// const arr = [1, 2, 3, 2, 4, 5,3, 6,5];
+
+// function findDuplicates(arr){
+//     const ans = [];
+//     arr.sort();
+//     for(let i = 0; i < arr.length-1; i++){
+//         if(arr[i] === arr[i+1] && !ans.includes(arr[i])){
+//             ans.push(arr[i]);
+//         }
+//     }
+//     return ans;
+// }
+
+// const ans = findDuplicates(arr);
+// console.log(ans);
+
+
+// infinity curring
+
+// function sum(val1){
+//     return function(val2){
+//         if(val2){
+//             return sum(val1 + val2)
+//         }
+//         return val1;
+//     }
+// }
+
+// const ans = sum(2)(2)(4)(5)(6)(2)()
+// console.log(ans)
+
+// ----------------------------------------------------------------
+
+// function person(){
+//     this.fName = "anas",
+//     this.age = "20"
+// }
+
+// person.prototype.lName = 'Nadkar'
+
+// console.log(person.lName)
+
+// -------------------------------------------------------------
+
+// const obj = {
+//     sum : 200
+// }
+
+// console.log(obj.sum)
+// delete obj.sum
+// console.log(obj.sum);
+
+// -------------------------------------------------------------
+
+// const [a,b] = [1 ,2]
+// console.log(a)
+
+// const {name, age} = {
+//     name: 'foo',
+//     age: 36
+// }
+
+// console.log(age)
+
+// const [...rest] = [1,2,3,4,5]
+
+// console.log(rest)
+
+// function myFun(a, ...rest){
+//     console.log('hello world')
+//     return rest
+// }
+
+// console.log(myFun(1, 2, 3))
+
+// console.log('hii ',name);
+// var name = 'anas';
+// console.log('hii ',name);
+
+// const a = undefined
+// console.log(a);
+
+function one(a=10, b=20){
+    console.log(a+b);
+}
+one(undefined, 10);
+
+
