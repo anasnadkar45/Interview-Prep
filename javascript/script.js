@@ -1046,9 +1046,170 @@
 // const a = undefined
 // console.log(a);
 
-function one(a=10, b=20){
-    console.log(a+b);
+// function one(a=10, b=20){
+//     console.log(a+b);
+// }
+// one(undefined, 10);
+
+
+// ------------------------------------------------------------------------------------
+
+// function myLocalStorage() {
+//     return {
+//         setItem: (key, val, duration = 3000) => {
+//             localStorage.setItem(key, val);
+
+//             // Automatically remove the item after 'duration'
+//             let timer = setTimeout(() => {
+//                 localStorage.removeItem(key);
+//             }, duration);
+
+//             // Return a function to clear the timer if needed
+//             return () => clearTimeout(timer);
+//         }
+//     };
+// }
+
+// const storage = myLocalStorage(); // Create an instance
+// storage.setItem('name', 'anas', 1000);
+// storage.setItem('name', 'nadkar', 5000);
+
+// console.log(localStorage.getItem('name'));
+
+// setTimeout(() => {
+//     console.log(localStorage.getItem('name')); // Should log 'null' after 1000ms
+// }, 1500);
+
+
+// ----------------------------------------------------------------
+
+// function memoize(fn){
+//     const cache = {};
+//     return function (...args){
+//         const key = args.sort().toString();
+//         if(cache[key]){
+//             console.log('cache');
+//             return cache[key];
+//         }else{
+//             const sum = fn(...args);
+//             cache[key] = sum;
+//             return sum;
+//         }
+//     }
+// }
+
+// const addSum = (a, b, c) => a + b + c;
+// const subSum = (a, b, c) => a - b - c;
+// const memoizeAdd = memoize(addSum);
+// const memoizeSub = memoize(subSum);
+// console.log(memoizeAdd(1, 2, 3));
+// console.log(memoizeAdd(1, 2, 3));
+// console.log(memoizeSub(1, 2, 3));
+// console.log(memoizeSub(1, 2, 3));
+// console.log(memoizeAdd(1, 2, 3));
+
+
+// function getApi(path, query){
+
+// }
+
+// const createApiWithMerging = (myFn) =>{
+//     const cacheStore = {};
+//     return function(...args){
+//         const key = args.toString();
+//         if(cacheStore[key]){
+//             return cacheStore[key];
+//         }else{
+//             const output = myFn(...args);
+//             cacheStore[key] = output;
+//             return output;
+//         }
+//     }
+// }
+
+// const getApiWithMerging = createApiWithMerging(getApi);
+// console.log(getApiWithMerging('/list', 'anas'))
+
+
+// ----------------------------------------------------------------
+
+// const obj = [
+//     {
+//         key: 'Sample 1',
+//         data: 'Data1'
+//     },
+//     {
+//         key: 'Sample 1',
+//         data: 'Data1'
+//     },
+//     {
+//         key: 'Sample 2',
+//         data: 'Data2'
+//     },
+//     {
+//         key: 'Sample 1',
+//         data: 'Data1'
+//     },
+//     {
+//         key: 'Sample 3',
+//         data: 'Data1'
+//     },
+//     {
+//         key: 'Sample 4',
+//         data: 'Data1'
+//     },
+// ];
+
+// const output = obj.reduce((acc, curr) => {
+//     if (!acc[curr.key]) {
+//         acc[curr.key] = []
+//     } 
+//     acc[curr.key].push(curr)
+//     return acc
+// }, {})
+
+// console.log(output)
+
+// ----------------------------------------------------------------
+
+// function flattenArray(array){
+//     const temp = [];
+//     for(let i=0; i<array.length; i++){
+//         if(Array.isArray(array[i])){
+//             temp.push(...flattenArray(array[i]))
+//         }else {
+//             temp.push(array[i]);
+//         }
+//     }
+//     return temp;
+// }
+// const arr = [1,2,3,[4,5,[6,7]],8,9];
+
+// const result = flattenArray(arr);
+// console.log(result);
+
+// ----------------------------------------------------------------
+
+function chunk(arr, size){
+    const answer = [];
+    let temp = [];
+    let currSize = 0;
+    for(let i = 0; i < arr.length; i++){
+        temp.push(arr[i]);
+
+        if(temp.length === size){
+            answer.push(temp);
+            temp = [];
+        }
+    }
+
+    if(temp.length > 0){
+        answer.push(temp);
+    }
+    return answer;
 }
-one(undefined, 10);
 
-
+const array = [1,2,3,4,5,6,7]
+console.log(chunk(array,2))
+// console.log(chunk(array,3))
+// console.log(chunk(array,4))
