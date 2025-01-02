@@ -1190,26 +1190,98 @@
 
 // ----------------------------------------------------------------
 
-function chunk(arr, size){
-    const answer = [];
-    let temp = [];
-    let currSize = 0;
-    for(let i = 0; i < arr.length; i++){
-        temp.push(arr[i]);
+// function chunk(arr, size){
+//     const answer = [];
+//     let temp = [];
+//     let currSize = 0;
+//     for(let i = 0; i < arr.length; i++){
+//         temp.push(arr[i]);
 
-        if(temp.length === size){
-            answer.push(temp);
-            temp = [];
-        }
-    }
+//         if(temp.length === size){
+//             answer.push(temp);
+//             temp = [];
+//         }
+//     }
 
-    if(temp.length > 0){
-        answer.push(temp);
-    }
-    return answer;
-}
+//     if(temp.length > 0){
+//         answer.push(temp);
+//     }
+//     return answer;
+// }
 
-const array = [1,2,3,4,5,6,7]
-console.log(chunk(array,2))
+// const array = [1,2,3,4,5,6,7]
+// console.log(chunk(array,2))
 // console.log(chunk(array,3))
 // console.log(chunk(array,4))
+
+
+// -----------------------------------------------------------------------------------------------
+
+// function groupAnagrams(words) {
+//     return Object.values(
+//         words.reduce((acc, curr) => {
+//             const key = curr.split('').sort().join('');
+//             acc[key] = acc[key] || [];
+//             acc[key].push(curr);
+//             return acc;
+//         }, {})
+//     )
+// }
+
+// console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']))
+
+// ----------------------------------------------------------------
+
+// function kLargestNumber(arr, k){
+//     let ans;
+//     let count = 0;
+//     if(arr.length === 1 && k=== 1){
+//         return arr[0];
+//     }
+
+//     const sortedArray = arr.sort();
+//     for(let i=sortedArray.length-1; i>=0; i--){
+//         if(k !== count){
+//             ans = sortedArray[i];
+//             count++;
+//         }else {
+//             return ans;
+//         }
+//     }
+// }
+
+// const Input = [3,2,1,5,6,4];
+// let k = 2;
+
+// console.log(kLargestNumber(Input, k));
+
+// ----------------------------------------------------------------
+// function rotateMatrix(array) {
+//     const ans = [];
+//     let currIndex = 0;
+//     while (currIndex < array[0].length) {
+//         const group = [];
+//         for (let i = array.length - 1; i >= 0; i--) {
+//             group.push(array[i][currIndex]);
+//         }
+//         ans.push(group);
+//         currIndex++;
+//     }
+//     return ans;
+// }
+
+// const arr = [
+//     [1, 2, 3], [4, 5, 6], [7, 8, 9]
+// ]
+
+// console.log(rotateMatrix(arr));
+
+// [
+//     [7, 4, 1],
+//     [8, 5, 2],
+//     [9, 6, 3]
+// ]
+
+
+// --------------------------------------------------------------------------------------------------------------------
+

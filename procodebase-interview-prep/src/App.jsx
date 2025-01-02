@@ -20,6 +20,7 @@ import { Toast } from './components/Toast/Toast'
 import { Comments } from './components/Comments/Comments'
 import { UseReducer } from './components/UseReducer/UseReducer'
 import { UseMemo } from './components/UseMemo/UseMemo'
+import { NestedCircle } from './components/NestedCircle/NestedCircle'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
@@ -47,8 +48,9 @@ const App = () => {
       {/* <Toast /> */}
       {/* <Comments /> */}
       {/* <Pagination /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
       {/* <UseMemo /> */}
+      <NestedCircle />
     </div>
   )
 }

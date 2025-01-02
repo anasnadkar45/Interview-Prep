@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 export const AutoComplete = () => {
     const [data, setData] = useState([]);
@@ -8,16 +8,20 @@ export const AutoComplete = () => {
     const api = 'https://fakestoreapi.com/products';
 
     const fetchData = async () => {
-        const response = await fetch(api);
-        const result = await response.json();
-        setData(result);
+        try {
+            const response = await fetch(api);
+            const result = await response.json();
+            setData(result);
+        } catch (e) {
+            console.error(e)
+        }
     };
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const debouncedFilter = () => {
+    const debouncedFilter = useCallback(() => {
         let timer = setTimeout(() => {
             const newSuggestions = data.filter((item) =>
                 item.title.toLowerCase().includes(input.toLowerCase())
@@ -28,8 +32,8 @@ export const AutoComplete = () => {
             }
         }, 500)
 
-        return ()=> clearTimeout(timer);
-    }
+        return () => clearTimeout(timer);
+    }, [input, data])
 
     useEffect(() => {
         debouncedFilter();
@@ -75,7 +79,10 @@ export const AutoComplete = () => {
                                     cursor: 'pointer',
                                     borderBottom: '1px solid #f0f0f0',
                                 }}
-                                onMouseDown={() => setInput(suggestion.title)}
+                                onMouseDown={() => {
+                                    setInput(suggestion.title)
+                                    setSuggestions([])
+                                }}
                                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0f0f0')}
                                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#fff')}
                             >
