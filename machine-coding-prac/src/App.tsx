@@ -1,11 +1,13 @@
+import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
+import Recruitment from './pages/Recruitment'
 
 function App() {
 
   return (
-    <div>
-      <h1 className='text-3xl bg-cyan-500'>Hii</h1>
-    </div>
+    <Routes>
+      <Route path="/recruitment" element={<Recruitment />} />
+    </Routes>
   )
 }
 
