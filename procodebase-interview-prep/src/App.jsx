@@ -44,13 +44,14 @@ const App = () => {
       {/* <TrafficLight /> */}
       {/* <GridLight /> */}
       {/* <PhotoAlbum /> */}
-      {/* <AdvanceSearch /> */}
+      <AdvanceSearch />
       {/* <Toast /> */}
       {/* <Comments /> */}
       {/* <Pagination /> */}
       {/* <UseReducer /> */}
       {/* <UseMemo /> */}
-      <NestedCircle />
+      {/* <NestedCircle /> */}
+      
     </div>
   )
 }
