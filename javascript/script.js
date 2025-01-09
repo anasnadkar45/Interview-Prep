@@ -1285,3 +1285,99 @@
 
 // --------------------------------------------------------------------------------------------------------------------
 
+// const input = {
+//     A: (a, b, c) => a + b + c,
+//     B: (a, b, c) => a - b - c,
+//     C: (a, b, c) => a + b *c,
+//     D: {
+//         E: (a, b, c) => a + b + c,
+//     }
+// }
+
+
+// function compute(a=0, b=0, c=0) {
+//     function traverse(obj) {
+//         let output = {};
+//         for(const key in obj) {
+//             const value = obj[key];
+//             if(typeof value === 'function'){
+//                 try{  
+//                     output[key] = value(a,b,c);
+//                 }catch(e){
+//                     console.log(e)
+//                 }
+//             }else if(typeof value === 'object'){
+//                 output[key] = traverse(value);
+//             }
+//         }
+//         return output;
+//     }
+//     return traverse(input)
+// }
+
+// const ans = compute(1, 1, 1);
+// console.log(ans);
+
+// ----------------------------------------------------------------
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// Array.prototype.myReduce = function (cbFn, initialValue) {
+//     for(let i=0; i<this.length; i++){
+//         initialValue = cbFn(initialValue, this[i])
+//     }
+//     return initialValue
+// }
+
+// const ans = arr.myReduce((acc, curr) => {
+//     acc = acc + curr;
+//     return acc
+// }, 0)
+
+// console.log(ans);
+
+
+// -------------------------------------------------------------
+
+// function memoize(fn){
+//     const cache = {};
+//     return function (...args) {
+//         const key = args.sort().toString();
+//         if(cache[key]){
+//             console.log('from cache');
+//             return cache[key];
+//         }else{
+//             const ans = fn(args);
+//             cache[key] = ans;
+//             return ans;
+//         }
+//     }
+// }
+
+// const addSum = (a,b,c) => a + b + c; 
+
+// const memoizeAdd = memoize(addSum);
+// console.log(memoizeAdd(1,3))
+
+// ---------------------------------------------------------------------
+
+// function findMax(array){
+//     let ans = [];
+//     let max;
+//     function flattenArray(array){
+//         array.forEach(element => {
+//             if(Array.isArray(element)){
+//                 flattenArray(element);
+//             }else {
+//                 ans.push(element);
+//             }
+//         });
+//     }
+//     flattenArray(array)
+//     ans.sort();
+//     max = ans[ans.length - 1];
+//     return max;
+// }
+
+// const nums = [4, 2, [6, 3], [1, [9, 8] ] , 5];
+// console.log(findMax(nums));
