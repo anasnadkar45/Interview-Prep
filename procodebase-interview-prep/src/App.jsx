@@ -21,6 +21,7 @@ import { Comments } from './components/Comments/Comments'
 import { UseReducer } from './components/UseReducer/UseReducer'
 import { UseMemo } from './components/UseMemo/UseMemo'
 import { NestedCircle } from './components/NestedCircle/NestedCircle'
+import { FaryMeter } from './components/FaryMeter/FaryMeter'
 
 const List = Array.from({ length: 100000 }, (_, index) => index + 1)
 // console.log(List);
@@ -44,14 +45,14 @@ const App = () => {
       {/* <TrafficLight /> */}
       {/* <GridLight /> */}
       {/* <PhotoAlbum /> */}
-      <AdvanceSearch />
+      {/* <AdvanceSearch /> */}
       {/* <Toast /> */}
       {/* <Comments /> */}
       {/* <Pagination /> */}
       {/* <UseReducer /> */}
       {/* <UseMemo /> */}
       {/* <NestedCircle /> */}
-      
+      <FaryMeter />
     </div>
   )
 }
