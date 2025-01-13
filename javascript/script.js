@@ -1381,3 +1381,94 @@
 
 // const nums = [4, 2, [6, 3], [1, [9, 8] ] , 5];
 // console.log(findMax(nums));
+
+// ---------------------------------------------------
+
+// const obj1 = {
+//     test: 'value1',
+// }
+
+// const obj2 = {...obj1};
+// obj2.test = 'value2';
+
+// console.log(obj2)
+
+// let a = 'anas';
+// let b = 2;
+
+// console.log(1 - 'b')
+
+// ----------------------------------------------------------------
+
+// const arr = [1, 2, 3, 4, 5,4,2,3];
+
+// const updateArr = new Set(arr);
+// console.log(updateArr)
+
+// const findDuplicates = (arr) =>{
+//     const temp = []
+//     const sortedArr=[...arr].sort();
+//     console.log(sortedArr)
+//     for(let i=0; i<sortedArr.length-1; i++){
+//         if(sortedArr[i] === sortedArr[i+1] && !temp.includes(sortedArr[i])){
+//             temp.push(sortedArr[i]);
+//         }
+//     }
+//     return temp;
+// }
+
+// console.log(findDuplicates(arr))
+
+// let str = 'MyNameIsAnas';
+// let result = str.split('').map((char)=> char === char.toUpperCase() ? ' '+char : char).join('').trim();
+// console.log(str);
+// console.log(result);
+
+// const user = { profile: { name: 'Anas' } };
+// console.log(user.name);
+
+// const input = document.getElementById('searchInput');
+
+// function debounce(fn, delay) {
+//     let timer;
+//     return function(...args){
+//         clearTimeout(timer);
+//         timer = setTimeout(()=>{
+//             fn.apply(this, args);
+//         }, delay);
+//     }
+
+// }
+
+
+// const handleInput = debounce(()=>{
+//     console.log(input.value)
+// }, 1000)
+
+// input.addEventListener('input', handleInput);
+
+// ----------------------------------------------------------------
+
+// const str = 'anas';
+// const updatedStr = str.split('')
+// updatedStr[0] = 'b'
+// console.log(updatedStr)
+
+// const str = 'banglore';
+
+// function reverseStr(str) {
+//     const updatedStr = str.split('')
+//     const size = Math.floor(str.length / 2)
+//     console.log(size)
+//     for (let i = 0; i < size; i++) {
+//         let start = i;
+//         let end = updatedStr.length - 1 - i;
+//         let temp = updatedStr[start];
+//         updatedStr[start] = updatedStr[end];
+//         updatedStr[end] = temp;
+//     }
+
+//     return updatedStr.join('');
+// }
+
+// console.log(reverseStr(str));
