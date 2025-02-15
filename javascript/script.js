@@ -1472,3 +1472,151 @@
 // }
 
 // console.log(reverseStr(str));
+
+
+// ----------------------------------------------------------------
+
+// const input = {
+//     A: (a, b, c) => a + b + c,
+//     B: (a, b, c) => a - b - c,
+//     C: (a, b, c) => a + b *c,
+//     D: {
+//         E: (a, b, c) => a + b + c,
+//     }
+// }
+
+// const compute = (a=0,b=0,c=0) =>{
+//     function generate(input){
+//         const ans = {}
+//         Object.entries(input).forEach((item)=>{
+//             if(typeof (item[1]) === 'function'){
+//                 const value = item[1]
+//                 ans[item[0]] = value(a,b,c)
+//             }else if(typeof (item[1]) === 'object'){
+//                 ans[item[0]] = generate(item[1]);
+//             }
+//         })
+//         return ans;
+//     }
+
+//     return generate(input);
+// }
+
+// // { A: 3, B: -1, C: 2, D: { E: 3 } }
+// const ans = compute(1, 1, 1);
+// console.log(ans);
+
+// ----------------------------------------------------------------
+
+// function meregeAlternative(s1, s2) {
+//     const str1 = s1.split('');
+//     const str2 = s2.split('');
+//     let ans = ''
+//     let i = 0, j = 0;
+
+//     while(i < str1.length || j < str2.length) {
+//         if (i < str1.length ) {
+//             ans += str1[i];
+//             i++;
+//         }
+
+//         if (j < str2.length) {
+//             ans += str2[j];
+//             j++;
+//         }
+//     }
+
+//     return ans;
+// }
+
+// console.log(meregeAlternative('anas', 'nadkar'));
+
+// ----------------------------------------------------------------
+
+// function longestString(str) {
+//     const arr = str.split(' ');
+//     console.log(arr)
+
+//     const max = arr.reduce((acc, curr) => {
+//         if(curr.length > acc.length){
+//             acc = curr;
+//         }
+//         return acc;
+//     },'')
+
+//     return max;
+// }
+
+// console.log(longestString('anas love javascript'))
+
+// ----------------------------------------------------------------
+
+// const ans = [];
+// function flattenArray(array) {
+
+//     for (let i = 0; i < array.length; i++) {
+//         if (Array.isArray(array[i])) {
+//             flattenArray(array[i]);
+//         }else{
+//             ans.push(array[i]);
+//         }
+//     }
+
+//     return ans;
+// }
+
+// console.log(flattenArray([[1, 2], [3, 4], [5, 6], [7, 8]]))
+
+// let {a,b,c} = {a:1,b:2,c:3}
+// console.log(b)
+
+// ----------------------------------------------------------------
+
+// const obj = { a: 1, b: 2, c: 3 }
+// let arr = Object.entries(obj)
+// console.log(arr)
+
+// ----------------------------------------------------------------
+// function findTheSmallestWord(str){
+//     let ans = '';
+//     const array = str.split(' ');
+//     ans = array[0];
+//     for (let i = 0; i < array.length; i++) {
+//         let curr = array[i];
+//         if(curr.length <= ans.length){
+//             ans = curr
+//         }
+//     }
+//     return ans;
+// }
+
+// const str = "Find the sma word"
+
+// console.log(findTheSmallestWord(str))
+
+// ----------------------------------------------------------------
+
+// Array.prototype.groupeBy = function(fn){
+//     return this.reduce((acc, curr)=>{
+//         const key = fn(curr)
+//         if(!acc[key]){
+//             acc[key] = []
+//         }
+//         acc[key].push(curr)
+//         return acc
+//     },{})
+// }
+
+// const array1 = [
+//     {"id": "1"},
+//     {"id": "1"},
+//     {"id": "2"},
+// ]
+
+// const fn1 = function(item){
+//     return item.id;
+// }
+
+// console.log(array1.groupeBy(fn1));
+
+// ---------------------------------------------
