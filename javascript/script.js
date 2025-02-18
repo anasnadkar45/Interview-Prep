@@ -1620,3 +1620,183 @@
 // console.log(array1.groupeBy(fn1));
 
 // ---------------------------------------------
+
+// const p1 = Promise.resolve("p1 resolved")
+// const p2 = Promise.reject("p2 rejected")
+// const p3 = Promise.resolve("p3 resolved")
+
+// Promise.allSettled([p1, p2, p3]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// })
+
+// ----------------------------------------------------------------
+
+// const arr = [1,2,3,4,5,6];
+
+// const ans = arr.reduce((acc,curr)=>{
+//     return acc + curr
+// },0)
+
+// console.log(ans)
+
+// ----------------------------------------------------------------------
+
+// function findMissingRepeatingNumbers(nums) {
+//     let missingNo;
+//     let duplicate;
+//     const updatedNums = nums.sort();
+//     for (let i = 0; i < updatedNums.length; i++) {
+//         if (!duplicate && updatedNums[i] === updatedNums[i + 1]) {
+//             duplicate = updatedNums[i];
+//         }
+//         if(!updatedNums.includes(i)) {
+//             missingNo = i
+//         }
+//     }
+
+//     if(!missingNo){
+//         missingNo = updatedNums.length;
+//     }
+//     return [duplicate, missingNo];
+
+// }
+
+// console.log(findMissingRepeatingNumbers([6,5,7,1,8,6,4,3,2]))
+
+// ------------------------------------------------------
+
+// function retrievePaths(folderStructure) {
+//     const paths = [];
+
+//     function helper(structure, currentPath) {
+//         for (const [key, value] of Object.entries(structure)) {
+//             const newPath = currentPath ? `${currentPath}/${key}` : key;
+
+//             if (typeof value === 'object') {
+//                 helper(value, newPath);
+//             } else {
+//                 paths.push(newPath);
+//             }
+//         }
+//     }
+
+//     helper(folderStructure, "");
+//     return paths;
+// }
+// const folderStructure = {
+//     src: {
+//         components: {
+//             Button: {
+//                 "index.js": "file",
+//                 "style.css": "file"
+//             }
+//         },
+//         utils: {
+//             "helpers.js": "file"
+//         }
+//     },
+//     public: {
+//         "index.html": "file"
+//     }
+// };
+
+// console.log(retrievePaths(folderStructure));
+
+
+// ------------------------------------------------------------------------------------------------
+
+// const obj = {
+//     a: 1,
+//     b: function() {
+//         return this.a;
+//     },
+//     c: () => {
+//         return this.a;
+//     }
+// };
+
+// console.log(obj.b());  // Output 1?
+// console.log(obj.c());  // Output 2?
+
+// const test = obj.b;
+// console.log(test());    // Output 3?
+
+// const testArrow = obj.c;
+// console.log(testArrow());  // Output 4?
+
+// ------------------------------------------------
+
+// const obj1 = {};
+// const obj2 = { parent: obj1 };
+// obj1.child = obj2;
+
+
+// console.log(obj1);
+
+// const arr = [1, 1, 2, 2, 2, 3];
+
+// const ans = arr.reduce((acc,curr)=>{
+//     acc[curr] = acc[curr] ? acc[curr] + 1 : 1 ;
+//     return acc ;
+// },{})
+
+// console.log(ans);
+
+// ----------------------------------------------------------
+
+// function debounce(cbFn, delay) {
+//     let timer;
+//     return function (...args) {
+//         clearTimeout(timer);
+//         timer = setTimeout(() => cbFn(...args), delay);
+//     }
+// }
+
+// const example = debounce((...args) => {
+//     console.log(...args)
+// }, 2000)
+
+// example("hii1")
+// example("hii2")
+// example("hii3")
+
+
+// ----------------------------------------------------------------
+
+// function createCounter() {
+//     let count = 0;
+//     return {
+//         increment: () => ++count,
+//         decrement: () => --count,
+//         getCount: () => count
+//     };
+// }
+
+// const counter1 = createCounter();
+// const counter2 = createCounter();
+
+// counter1.increment()
+// console.log(counter2.getCount())
+
+// ----------------------------------------------------------------
+
+// function modify1(num){
+//     return num + 1;
+// }
+
+// function modify2(arr){
+//     return arr.shift()
+// }
+// let num = 0;
+// let arr = [1,2,3,4];
+
+// modify1(num)
+// modify2(arr)
+
+// console.log(num)
+// console.log(arr)
+
+// ----------------------------------------------------------------
+
