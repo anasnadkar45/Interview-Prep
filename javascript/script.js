@@ -1800,3 +1800,78 @@
 
 // ----------------------------------------------------------------
 
+
+// const task = (time) => {
+//     return () =>
+//         new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve(`resolved promised with ${time}`);
+//             }, time);
+//         });
+// };
+
+// const callApis = [
+//     task(1000),
+//     task(500),
+//     task(400),
+//     task(600),
+//     task(300),
+//     task(700),
+// ];
+
+// const throttlePromises = async (callApis, limit) => {
+//     let currentFetchCount = 0;
+//     const result = [];
+
+//     while (currentFetchCount < callApis.length) {
+//         let batch = callApis
+//             .slice(currentFetchCount, currentFetchCount + limit)
+//             .map((api) => api());
+
+//         let batchResults = await Promise.all(batch);
+
+//         result.push(...batchResults);
+//         currentFetchCount += limit;
+//     }
+//     return result;
+// };
+
+// throttlePromises(callApis, 2)
+//     .then((data) => console.log("Final result:", data))
+//     .catch((err) => console.error(err));
+
+
+// ----------------------------------------------------------------
+
+const user = {
+    name: "Rowdy Coders",
+    address: {
+      primary: {
+        house: "109",
+        street: {
+          main: 21,
+          cross: ["32", "1"],
+        },
+      },
+    },
+  };
+  
+  function flattenObject(user) {
+    let ans = {};
+  
+    function helper(user) {
+      Object.entries(user).forEach(([key, value])=>{
+        if(!typeof value === "object"){
+          ans[key] = value;
+        }else{
+          helper(value);
+        }
+      })
+    }
+  
+    helper(user);
+  
+    return ans;
+  }
+  
+  console.log(flattenObject(user));
