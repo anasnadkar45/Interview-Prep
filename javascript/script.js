@@ -1843,35 +1843,328 @@
 
 // ----------------------------------------------------------------
 
-const user = {
-    name: "Rowdy Coders",
-    address: {
-      primary: {
-        house: "109",
-        street: {
-          main: 21,
-          cross: ["32", "1"],
-        },
-      },
-    },
-  };
-  
-  function flattenObject(user) {
-    let ans = {};
-  
-    function helper(user) {
-      Object.entries(user).forEach(([key, value])=>{
-        if(!typeof value === "object"){
-          ans[key] = value;
-        }else{
-          helper(value);
-        }
-      })
+// const user = {
+//     name: "Rowdy Coders",
+//     address: {
+//       primary: {
+//         house: "109",
+//         street: {
+//           main: 21,
+//           cross: ["32", "1"],
+//         },
+//       },
+//     },
+//   };
+
+//   function flattenObject(user) {
+//     let ans = {};
+
+//     function helper(user) {
+//       Object.entries(user).forEach(([key, value])=>{
+//         if(!typeof value === "object"){
+//           ans[key] = value;
+//         }else{
+//           helper(value);
+//         }
+//       })
+//     }
+
+//     helper(user);
+
+//     return ans;
+//   }
+
+//   console.log(flattenObject(user));
+
+// -------------------------------------------------------
+
+// const str = "a.b.c"
+
+// function stringToObject(str, value) {
+//   const array = str.split(".");
+//   const ans = array.reduceRight((acc, curr) => ({
+//     [curr]: acc
+//   }), value)
+
+//   return ans
+// }
+
+// console.log(stringToObject(str, "anas"))
+
+
+// -----------------------------------------------------
+
+// function func(){
+//     const a = b = c = 1;
+// }
+
+// func();
+// console.log(typeof a, typeof b, typeof c);
+
+// ----------------------------------------------------
+
+// sayOtherName();
+// sayName();
+
+// var sayName = () =>{
+//     console.log("hello world!");
+// }
+
+// function sayOtherName() {
+//     console.log("world!");
+// }
+
+// ----------------------------------------------------------------
+
+// for(let i = 0; i <5; i++) {
+//     setTimeout(()=>{
+//         console.log(i);
+//     },1000)
+// }
+
+// ----------------------------------------------------------------
+
+// const outerFunc = () => {
+
+//   if (true) {
+//     // "if" block scope
+//     var count = 12;
+//     console.log(count); // 12
+//   }
+
+//   console.log(count); // 12
+// }
+
+// outerFunc();
+// // console.log(count); // ReferenceError
+
+// ---------------------------------------------------------------- 
+
+// function test(time) {
+
+//     return () => {
+//         return new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve("resolved by " + time + " seconds")
+//             }, time)
+//         })
+//     }
+
+// }
+
+// const callbacks = [test(400), test(500), test(600), test(100)];
+
+// async function getResult(callbacks) {
+//     const result = []
+
+//     const batch = callbacks.map((api) => api())
+//     const ans = await Promise.all(batch)
+
+//     result.push(...ans)
+
+//     return result
+// }
+
+// getResult(callbacks).then((result) =>{
+//     console.log(result)
+// }).catch((err) =>{
+//     console.log(err)
+// })
+
+// ----------------------------------------------------------------
+
+// const p1 = Promise.resolve("Promise 1 resolved");
+// const p2 = new Promise((resolve) => setTimeout(() => resolve("Promise 2 resolved"), 1000));
+// const p3 = Promise.resolve("Promise 3 resolved");
+
+// Promise.all([p1, p2, p3])
+//     .then((results) => console.log(results))
+//     .catch((error) => console.log("Error:", error));
+
+
+// ----------------------------------------------------------------
+
+// console.log('start');
+
+// const promise1 = new Promise((resolve, reject) => {
+//   console.log(1)
+//   resolve(2)
+//   console.log(3)
+// })
+
+// promise1.then(res => {
+//   console.log(res)
+// })
+
+// console.log('end');
+
+// ----------------------------------------------------------------
+
+// function calculate(...params) {
+//     return params.reduce((acc, val) => {
+//         return acc + val;
+//     });
+// }
+
+// // Memo Function
+// function memo(...params) {
+//     var obj = {};
+
+//     return function (...actualParams) {
+//         let uniqueKey = actualParams.join('');
+
+//         // Return from Cache
+//         if (obj[uniqueKey]) {
+//             return obj[uniqueKey];
+//         }
+
+//         // Calculate value and Store it
+//         return obj[uniqueKey] = calculate(...actualParams);
+//     };
+// }
+
+// var memoizsed = memo();
+
+// console.log(memoizsed(1, 2, 3, 10, 3, 4, 2));
+
+// ----------------------------------------------------------------
+
+// function closure() {
+//     let count = 0;
+//     return function test() {
+//         count++;
+//         return count;
+//     }
+// }
+
+// const closuredTest = closure();
+
+// console.log(closuredTest());
+// console.log(closuredTest());
+// console.log(closuredTest());
+
+// ----------------------------------------------------------------
+
+// async function async1() {
+//     console.log("async1 start");
+//     const data = await async2();
+//     console.log(data);
+//     console.log("async1 end");
+// }
+
+// async function async2() {
+//     console.log("async2");
+//     return "async2 completed";
+// }
+
+// console.log("script start");
+
+// setTimeout(function () {
+//     console.log("setTimeout");
+// }, 0);
+
+// async1();
+
+// new Promise(function (resolve) {
+//     console.log("promise1");
+//     resolve();
+// }).then(function () {
+//     console.log("promise2");
+// });
+
+// console.log("script end");
+
+// ----------------------------------------------------------------
+
+// let car1 = {
+//     color: "green",
+//     company: "Ferrari"
+// }
+
+// function purchaseCar(currency, amount) {
+//     console.log(`I have purchase ${this.color} - ${this.company} car for ${currency}${amount}`)
+// }
+
+// Function.prototype.myCall = function(context = {}, ...args) {
+//     if(typeof this !== "function"){
+//         throw new Error(this + " is not a function");
+//     }
+
+//     context.fn = this
+//     context.fn(...args)
+// }
+// purchaseCar.myCall(car1, "rs", 50000000)
+
+// Function.prototype.myApply = function(context = {}, args = []) {
+//     if(typeof this !== "function"){
+//         throw new Error(this + " is not a function");
+//     }
+
+//     if(!Array.isArray(args)){
+//         throw new TypeError("CreateListFromArray called on non-object")
+//     }
+
+//     context.fn = this
+//     context.fn(...args)
+// }
+// purchaseCar.myApply(car1, ["rs", 50000000])
+
+// Function.prototype.myBind = function(context = {}, ...args) {
+//     if(typeof this !== "function"){
+//         throw new Error(this + " is not a function");
+//     }
+
+//     context.fn = this
+//     return function (...newArgs){
+//         return context.fn(...args, ...newArgs)
+//     }
+// }
+// const newFn = purchaseCar.myBind(car1)
+// newFn("rs", 50000000)
+
+
+// function sum(a, b) { return this.a + this.b + a + b };
+
+// const obj = {
+//     a: 10,
+//     b: 10,
+// }
+// const ans = sum.bind(obj, 10, 20)
+// console.log(ans())
+
+
+// const p1 = new Promise((resolve, reject) => {
+//     if (1 > 2) {
+//         resolve("resolved")
+//     }else{
+//         reject("rejected")
+//     }
+// })
+
+// const ans = p1.then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// })
+
+// async function fetchCart(){
+//     const response = await fetch('https://dummyjson.com/carts');
+//     const result = await response.json();
+//     return result
+// }
+
+// const ans = fetchCart();
+// console.log(ans);
+
+// ---------------------------------
+
+let obj1 = {
+    a:10,
+    b:{
+        c:100,
     }
-  
-    helper(user);
-  
-    return ans;
-  }
-  
-  console.log(flattenObject(user));
+}
+let obj2 = {...obj1};
+obj2.b.c = 70;
+console.log(obj1);
+console.log(obj2);
