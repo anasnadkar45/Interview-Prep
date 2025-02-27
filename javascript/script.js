@@ -2158,13 +2158,131 @@
 
 // ---------------------------------
 
-let obj1 = {
-    a:10,
-    b:{
-        c:100,
+// let obj1 = {
+//     a:10,
+//     b:{
+//         c:100,
+//     }
+// }
+// let obj2 = {...obj1};
+// obj2.b.c = 70;
+// console.log(obj1);
+// console.log(obj2);
+
+// -----------------------------------------
+
+// const obj =[
+//     {
+//         key:'Sample 1',
+//         data: 'Data 1'
+//     },{
+//         key:'Sample 1',
+//         data: 'Data 1'
+//     },{
+//         key:'Sample 2',
+//         data: 'Data 2'
+//     },{
+//         key:'Sample 1',
+//         data: 'Data 1'
+//     },{
+//         key:'Sample 3',
+//         data: 'Data 1'
+//     },
+//     {
+//         key:'Sample 4',
+//         data: 'Data 1'
+//     },
+// ]
+
+// const ans = obj.reduce((acc, curr)=>{
+//     if(acc[curr.key]){
+//         acc[curr.key].push(curr);
+//     }else{
+//         acc[curr.key] = [curr];
+//     }
+
+//     return acc;
+// },{});
+
+// console.log(ans);
+
+// ----------------------------------------------------------------
+
+// const memoizeOne = (cbFn) =>{
+//     const cache = {};
+//     return function (...args){
+//         let key = args.sort().toString();
+//         if(cache[key]){
+//             console.log("from cache")
+//             return cache[key];
+//         }else{
+//             const ans = cbFn(...args);
+//             cache[key] = ans
+//             console.log("first execution")
+//             return ans;
+//         }
+//     }
+// }
+
+// const add = (a, b) => a + b;
+// const sub = (a, b) => a - b;
+// const memoizeAdd = memoizeOne(add);
+// const memoizeSub = memoizeOne(sub);
+// console.log(memoizeAdd(1,2));
+// console.log(memoizeAdd(3,2));
+// console.log(memoizeAdd(1,2));
+// console.log(memoizeSub(1,2));
+// console.log(memoizeAdd(2,1));
+
+// const a = [1,2,3,[4,5,[6,7]],8,9];
+
+// function flattenArray(a){
+//     const temp = [];
+//     function helper(array){
+//         for(let i=0; i<a.length; i++){
+//             if(typeof array[i] === "number"){
+//                 temp.push(array[i]);
+//             }else if(Array.isArray(array[i])){
+//                 helper(array[i]);
+//             }
+//         }
+//     }
+//     helper(a)
+//     return temp;
+// }
+
+// const result = flattenArray(a);
+// console.log(result);
+
+// ------------------
+
+// const obj = {
+//     name: 'anas',
+//     age: 20,
+//     balls: {
+//         type:'leather'
+//     }
+// }
+
+// const obj2 = JSON.parse(JSON.stringify(obj));
+// obj2.balls.type = "tennis";
+
+// console.log(obj);
+// console.log(obj2);
+
+// ----------------------------------------------------------------
+
+var myObj = {
+    foo: "bar",
+    func: function () {
+        var self = this;
+        console.log(this.foo)
+        console.log(self.foo)
+            (function () {
+                console.log(this.foo)
+                console.log(self.foo)
+            })()
     }
 }
-let obj2 = {...obj1};
-obj2.b.c = 70;
-console.log(obj1);
-console.log(obj2);
+
+myObj.func()
