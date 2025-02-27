@@ -1,50 +1,45 @@
 import React, { useEffect, useState } from 'react'
 
 export const ProgressTimer = () => {
-    const [timer, setTimer] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [timerInput, setTimerInput] = useState(0);
+    const [loading, setLoading] = useState(false)
+
     const handleTimer = () => {
-        if (timer > 0) {
+        if (timerInput > 0) {
             setLoading(true);
         }
-    };
-
+    }
 
     useEffect(() => {
-        if (loading && timer > 0) {
-            const id = setInterval(() => {
-                setTimer(prev => {
-                    if (prev <= 1) {
-                        clearInterval(id);
+        if (loading && timerInput > 0) {
+            let timer = setTimeout(() => {
+                setTimerInput((prev) => {
+                    if (prev <= 0) {
+                        clearTimeout(timer);
                         setLoading(false);
                         return 0;
+                    } else {
+                        return prev - 1;
                     }
-                    return prev - 1;
-                });
-            }, 1000);
 
-            return () => clearInterval(id);
+                })
+            }, 1000)
+
+            return () => clearTimeout(timer)
         }
-    }, [loading])
-
+    }, [loading, timerInput])
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: "10px"
-        }}>
-            <input type="number" onChange={(e) => setTimer(e.target.value)} />
-            <button onClick={handleTimer}>Start</button>
-            <div style={{
-                width: '400px',
-                height: '10px',
-                border: '1px solid'
-            }}>
-                <div></div>
+        <div>
+            <h2>Progress Timer</h2>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
+                <input type="number" value={timerInput} onChange={(e) => setTimerInput(e.target.value)} />
+                <button onClick={handleTimer} disabled={loading}>{loading ? "Loading" : "Start"}</button>
             </div>
-            <p>{timer}</p>
+
+            <div style={{ width: '400px', height: '10px', border: '1px solid' }}>
+                <div style={{ width: !loading ? '0%' : `${100 / timerInput}%`, height: '100%', backgroundColor: 'yellow' }}></div>
+            </div>
+            <span>{timerInput}</span>
         </div>
     )
 }

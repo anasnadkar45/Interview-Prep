@@ -15,7 +15,8 @@ function App() {
       {/* <ExcelSheet /> */}
       {/* <AvatarPicker /> */}
       {/* <MiniCalendar /> */}
-      <ProgressTimer />
+      {/* <ProgressTimer /> */}
+      <TabForm />
     </div>
   )
 }
