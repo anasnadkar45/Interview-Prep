@@ -5,6 +5,9 @@ import { ExcelSheet } from './components/excel-spreadsheet/ExcelSheet'
 import { MiniCalendar } from './components/MiniCalendar/MiniCalendar'
 import NestedCheckbox from './components/NestedCheckbox/NestedCheckbox'
 import { ProgressTimer } from './components/ProgressTimer/ProgressTimer'
+import { TabForm } from './components/TabForm/TabForm'
+import { TicTacToe } from './components/TicTacToe/TicTacToe'
+import { Transfer } from './components/Transfer/Transfer'
 
 function App() {
 
@@ -16,7 +19,9 @@ function App() {
       {/* <AvatarPicker /> */}
       {/* <MiniCalendar /> */}
       {/* <ProgressTimer /> */}
-      <TabForm />
+      {/* <TabForm /> */}
+      {/* <Transfer /> */}
+      <TicTacToe />
     </div>
   )
 }

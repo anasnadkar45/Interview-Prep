@@ -2286,3 +2286,169 @@
 // }
 
 // myObj.func()
+
+// ----------------------------------------------------------------
+
+// let todoInput = document.getElementById('todoInput');
+// let submitButton = document.getElementById('submitButton');
+// let todoWrapper = document.getElementById('todoWrapper');
+
+// function addTodo(){
+//     let todoText = todoInput.value.trim();
+
+//     if(todoText === '') return;
+
+//     let li = document.createElement('li');
+
+//     let taskSpan = document.createElement('span');
+//     taskSpan.textContent = todoText;
+//     taskSpan.onclick = function(){
+//         taskSpan.classList.toggle('completed');
+//     }
+
+//     li.appendChild(taskSpan);
+//     todoWrapper.appendChild(li);
+
+//     todoInput.value = ""; 
+// }
+
+// --------------------------------------------
+
+// const input = {
+//     user: {
+//         name: "John",
+//         address: {
+//             city: "New York",
+//             zip: "10001"
+//         }
+//     }
+// };
+
+
+// function flattenObject(obj, prefix = "") {
+//     let temp = {};
+
+//     for (let key in obj) {
+//         let newKey = prefix ? `${prefix}.${key}` : key;
+
+//         if (typeof obj[key] === "object" && obj[key] !== null) {
+//             Object.assign(temp, flattenObject(obj[key], newKey))
+//         } else {
+//             temp[newKey] = obj[key];
+//         }
+//     }
+//     return temp;
+// }
+
+// console.log(flattenObject(input)); 
+
+// ----------------------------------------------------------------
+
+// const data = {
+//     user: {
+//         profile: {
+//             name: "Alice",
+//             details: {
+//                 age: 28,
+//                 city: "San Francisco"
+//             }
+//         }
+//     }
+// };
+
+// const { user: {
+//     profile: {
+//         name,
+//         details: {
+//             age,
+//             city
+//         }
+//     }
+// } } = data;
+
+// console.log(name, age, city)
+
+// ----------------------------------------------------------------
+
+// function createCounter(input) {
+//     let count = input;
+//     return function () {
+//         return count++;
+//     }
+// }
+// const counter = createCounter(5);
+
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+// const obj = {
+//     name: 'anas',
+//     user: {
+//         username: 'anasnadkar45',
+//         email: 'anasnadkar45@gmail.com'
+//     }
+// }
+
+// const obj2 = structuredClone(obj);
+// obj2.user.email = 'anasnadkar25@gmail.com'
+// console.log(obj2);
+// console.log(obj);
+
+// async function fetchApi(){
+//     const response = await fetch('https://dummyjson.com/todos?limit=20&skip=80');
+//     const result = await response.json();
+//     return result.todos;
+// }
+
+// fetchApi().then((response)=>{
+//     const groupedUser = response.reduce((acc, curr)=>{
+//         if(!acc[curr.userId]){
+//             acc[curr.userId] = []
+//         }
+//         acc[curr.userId].push(curr)
+//         return acc;
+//     },{})
+
+//     console.log(groupedUser)
+// }).catch((err)=>{
+//     console.error(err);
+// })
+
+// --------------------------------
+
+// function curry(fn, ...args) {
+//     return (...newArgs) => {
+//         const allArgs = [...args, ...newArgs];
+//         return allArgs.length >= fn.length ? fn(...allArgs) : curry(fn, ...allArgs);
+//     }
+// }
+// const join = (a, b, c) => {
+//     return `${a}_${b}_${c}`
+// }
+// const curriedJoin = curry(join)
+// console.log(curriedJoin(1, 2, 3)); // '1_2_3'
+// console.log(curriedJoin(1)(2, 3)); // '1_2_3'
+// console.log(curriedJoin(1, 2)(3)); // '1_2_3'
+// console.log(curriedJoin(1)(2)(3)); // '1_2_3'
+
+// ----------------------------------------------------------------
+
+// Array.prototype.myFlat = function (depth = 1) {
+//     const flatten = (arr, depth) => {
+//         if (depth === 0) return arr;
+//         return arr.reduce((acc, curr) =>
+//             Array.isArray(curr)
+//                 ? acc.concat(flatten(curr, depth - 1))
+//                 : acc.concat(curr),
+//             [])
+//     }
+
+//     return flatten(this, depth);
+// }
+
+// const arr = [1, [2, [3]], [4, [5]]];
+// console.log(arr.myFlat(4))
+
+// ----------------------------------------------------------------
+
