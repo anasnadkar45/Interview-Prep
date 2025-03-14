@@ -2452,3 +2452,42 @@
 
 // ----------------------------------------------------------------
 
+// function formatCamelCase(str) {
+//     return str
+//         .replace(/([A-Z])/g, ' $1') // Add space before capital letters
+//         .trim()                      // Remove leading space
+//         .toLowerCase()               // Convert to lowercase
+//         .replace(/^./, (match) => match.toUpperCase()); // Capitalize the first letter
+// }
+
+// let str = "AnasIsGivingTheInterview";
+// let output = formatCamelCase(str);
+// console.log(output);
+
+// ------------------------------------------------------------------
+
+// function operations() {
+//     let total = 0
+//     return {
+//         add: function(num){
+//             total += num
+//             return this
+//         },
+//         substract: function(num){
+//             total -= num
+//             return this
+//         },
+//         multiple: function(num){
+//             total *= num
+//             return this
+//         },
+//         divide: function(num){
+//             total /= num
+//             return this
+//         },
+//         result: function(){
+//             return Math.round(total)
+//         }
+//     }
+// }
+// console.log(operations().add(11).multiple(2).add(3).divide(2).substract(2).result());
