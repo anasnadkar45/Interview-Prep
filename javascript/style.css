@@ -1,0 +1,16 @@
+.answer {
+    display: none;
+}
+
+.answer.active {
+    display: block;
+}
+
+.chip {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 20px;
+    margin: 5px;
+  }
+  

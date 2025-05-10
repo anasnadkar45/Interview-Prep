@@ -2801,26 +2801,76 @@
 // console.log(output())
 // console.log(output())
 
-function memoized(cbFn) {
-    const cache = {};
-    return function(...args){
-        const key = args.sort().toString();
-        if(cache[key]){
-            console.log("from cache")
-            return cache[key]
-        }else{
-            console.log("frist Calc")
-            cache[key] = cbFn(...args);
-            return cache[key];
-        }
-    }
-}
+// function memoized(cbFn) {
+//     const cache = {};
+//     return function(...args){
+//         const key = args.sort().toString();
+//         if(cache[key]){
+//             console.log("from cache")
+//             return cache[key]
+//         }else{
+//             console.log("frist Calc")
+//             cache[key] = cbFn(...args);
+//             return cache[key];
+//         }
+//     }
+// }
 
-function add(a, b) {
-    return a + b;
-}
+// function add(a, b) {
+//     return a + b;
+// }
 
-let memoizeAdd = memoized(add);
-console.log(memoizeAdd(1, 2));
-console.log(memoizeAdd(1, 2));
-console.log(memoizeAdd(2, 1));
+// let memoizeAdd = memoized(add);
+// console.log(memoizeAdd(1, 2));
+// console.log(memoizeAdd(1, 2));
+// console.log(memoizeAdd(2, 1));
+
+// --------------------------
+
+// const accordions = document.querySelectorAll(".accordion");
+
+// accordions.forEach((accordion) => {
+//     const question = accordion.querySelector(".question");
+//     const answer = accordion.querySelector(".answer");
+//     question.addEventListener("click", () => {
+//         answer.classList.toggle("active");
+//     });
+// });
+
+
+// const chipsInput = document.querySelector(".chipsInput");
+// const chipsWrapper = document.querySelector(".chipsWrapper");
+// let input = "";
+// const chips = [];
+
+// chipsInput.addEventListener("keydown", (e) => {
+//     if (e.key === "Enter" && chipsInput.value.trim() !== "") {
+//         e.preventDefault(); // prevents form submission if inside a form
+//         input = chipsInput.value.trim();
+//         chips.push(input);
+//         renderChips();
+//         chipsInput.value = "";
+//         input = "";
+//     }
+// });
+
+// function renderChips() {
+//     chipsWrapper.innerHTML = ""; // clear previous
+//     chips.forEach((chip,index) => {
+//         const chipWrapper = document.createElement("div");
+//         const div = document.createElement("div");
+//         const deletBtn = document.createElement("button")
+//         div.className = "chip";
+//         div.innerText = chip;
+//         deletBtn.className = "deletBtn"
+//         deletBtn.innerText = "✖️"
+
+//         deletBtn.addEventListener("click", () => {
+//             chips.splice(index, 1)
+//             renderChips()
+//         })
+//         chipWrapper.appendChild(div);
+//         chipWrapper.appendChild(deletBtn)
+//         chipsWrapper.appendChild(chipWrapper)
+//     });
+// }
