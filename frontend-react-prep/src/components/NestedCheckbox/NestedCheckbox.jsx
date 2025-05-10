@@ -1,59 +1,42 @@
-import React, { useState } from 'react';
-import data from './data.json';
-
-const CheckboxItem = ({ checkbox, onToggle }) => {
-    const handleCheckboxChange = () => {
-        onToggle(checkbox.id);
-    };
-
-    return (
-        <div>
-            <div key={checkbox.id} style={{ display: 'flex', gap: '10px' }}>
-                <input
-                    type="checkbox"
-                    checked={checkbox.isChecked}
-                    onChange={handleCheckboxChange}
-                />
-                <span>{checkbox.title}</span>
-            </div>
-
-            {checkbox.children && checkbox.children.length > 0 && (
-                <div style={{ paddingLeft: '20px' }}>
-                    {checkbox.children.map((child) => (
-                        <CheckboxItem key={child.id} checkbox={child} onToggle={onToggle} />
-                    ))}
-                </div>
-            )}
-        </div>
-    );
-};
+import React, { useState } from 'react'
+import data from './data.json'
+import { Checkbox } from './Checkbox'
 
 const NestedCheckbox = () => {
-    const [checkboxes, setCheckboxes] = useState(data);
+  const [checkboxes, setCheckboxes] = useState(data)
 
-    const toggleCheckbox = (checkboxId) => {
-        const updateCheckboxes = (items) => {
-            return items.map((item) => {
-                if (item.id === checkboxId) {
-                    return { ...item, isChecked: !item.isChecked };
-                }
+  const handleCheckbox = (checkboxId) => {
+    const updatedCheckboxes = toggleCheckbox(checkboxes, checkboxId)
+    setCheckboxes(updatedCheckboxes)
+  }
 
-                if (item.children && item.children.length > 0) {
-                    return { ...item, children: updateCheckboxes(item.children) };
-                }
+  const toggleCheckbox = (node, checkboxId) => {
+    if (node.id === checkboxId) {
+      const newChecked = !node.isChecked
+      return {
+        ...node,
+        isChecked: newChecked,
+        children: node.children?.map(child => updateChildren(child, newChecked)) || [],
+      }
+    }
 
-                return item;
-            });
-        };
+    return {
+      ...node,
+      children: node.children?.map(child => toggleCheckbox(child, checkboxId)) || [],
+    }
+  }
 
-        setCheckboxes((prev) => updateCheckboxes([prev])[0]);
-    };
+  const updateChildren = (node, isChecked) => ({
+    ...node,
+    isChecked,
+    children: node.children?.map(child => updateChildren(child, isChecked)) || [],
+  })
 
-    return (
-        <div style={{ display: 'flex', justifyContent: 'start' }}>
-            <CheckboxItem checkbox={checkboxes} onToggle={toggleCheckbox} />
-        </div>
-    );
-};
+  return (
+    <div>
+      <Checkbox data={checkboxes} handleCheckbox={handleCheckbox} />
+    </div>
+  )
+}
 
-export default NestedCheckbox;
+export default NestedCheckbox

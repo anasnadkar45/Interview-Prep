@@ -2491,3 +2491,336 @@
 //     }
 // }
 // console.log(operations().add(11).multiple(2).add(3).divide(2).substract(2).result());
+
+// ---------------------------------------------------------
+
+// let obj1 = {
+//     name: 'Test', age: 20, comapany: {
+//         name: 'Google'
+//     }
+// };
+// let obj2 = { gender: 'male', age: 21 };
+// let obj3 = JSON.parse(JSON.stringify({ ...obj1, obj2 }))
+
+// obj3.comapany.name = "meta"
+// console.log(obj1)
+
+
+// ---------------------------------------------------------
+
+// function curry(cbFn){
+//     return function myCurried(...args){
+//         if(args.length >= cbFn.length){
+//             return cbFn(...args)
+//         }else{
+//             return (...args2) => myCurried(...args, ...args2)
+//         }
+//     }
+// }
+
+// function test(a, b, c) {
+//     return a + b + c;
+// }
+
+// const curriedFunction = curry(test);
+// console.log(curriedFunction(1, 2, 3)); // 6
+// console.log(curriedFunction(1, 2)(3)); // 6
+// console.log(curriedFunction(1)(2)(3)); // 6
+
+// --------------------------------------------
+
+// function getMaximumRobberyAmount(houses = []) {
+//     let totalOddAmt = 0;
+//     let totalEvenAmt = 0;
+
+//     for (let i = 0; i < houses.length; i++) {
+//         let currHouseAmount = houses[i];
+//         if (i % 2 === 0) {
+//             totalEvenAmt += currHouseAmount;
+//         } else {
+//             totalOddAmt += currHouseAmount
+//         }
+//     }
+
+//     return Math.max(totalOddAmt, totalEvenAmt)
+// }
+
+// console.log(getMaximumRobberyAmount([1, 2, 3, 1])); // Output: 4
+// console.log(getMaximumRobberyAmount([2, 7, 9, 3, 1])); // Output: 12
+
+// --------------------------------------------
+
+// myFun();
+
+// var myFun = function (){
+//     console.log("First")
+// }
+
+// myFun();
+
+// function myFun(){
+//     console.log("Second")
+// }
+
+// myFun();
+
+// ----------------------------------------------------
+
+// const a = {
+//     name: 'Anas',
+//     call: () => {
+//         console.log(this.name)
+//     }
+// }
+
+// a.call()
+
+// ---------------------------------
+
+// const arr = ["A", "B", "C", "A", "A"]
+// arr.sort((a,z)=>a.localeCompare(z))
+// console.log(arr)
+
+// ------------------------
+
+// let obj1 = {
+//     name: 'anas',
+//     address: {
+//         village: 'Sanglat'
+//     }
+// }
+
+// let obj2 = JSON.parse(JSON.stringify(obj1));
+
+// obj2.name = "Sara"
+// obj2.address.village = "Khed"
+
+// console.log(obj1)
+// console.log(obj2);
+
+// ---------------------------------------
+
+// let arr = [1,2,3];
+
+// let {2:a} = arr;
+// console.log(a)
+
+// ---------------------------------------------
+
+// function flattenArray(arr) {
+//     return arr.reduce((acc, val) =>
+//         Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val), []);
+// }
+
+// console.log(flattenArray([1, 3, 4, [5, 6, [7, [9]]]]));
+
+// ---------------------------------------------------
+
+// const x = Promise.resolve(1);
+
+// x.then((data) => {
+//     console.log(data + 1);
+//     return data + 1;
+// }).then((data) => console.log(data + 1));
+
+// x.then((data) => {
+//     console.log(data + 5);
+//     return data + 3;
+// }).then((data) => console.log(data + 3));
+
+// -----------------------------------------------------
+
+// function calc() {
+//     let ans = 0;
+//     return {
+//         add(...args) {
+//             ans += args
+//             return this
+//         },
+//         subtract(...args) {
+//             ans -= args
+//             return this
+//         },
+//         multiply(...args) {
+//             ans *= args
+//             return this
+//         },
+//         divide(...args) {
+//             ans /= args
+//             return this
+//         },
+//         getResult() {
+//             return ans
+//         },
+//     }
+// }
+// const ans = calc().add(10).subtract(5).multiply(20).divide(2).getResult()
+// console.log(ans)
+
+
+// -----------------------------------------------------------------
+
+// function manageAttendance(employees) {
+//     let employeesData = employees.reduce((acc, curr) => {
+//         acc[curr.id] = curr;
+//         return acc;
+//     }, {})
+
+
+//     return {
+//         addEmployee(empId, attendance) {
+//             employeesData[empId] = { id: empId, name: "david", attendance: attendance }
+//         },
+//         updateAttendance(empId, attendance) {
+//             employeesData[empId].attendance = attendance;
+//         },
+//         getAttendance(empId) {
+//             if (employeesData[empId]) {
+//                 return employeesData[empId].attendance
+//             } else {
+//                 return "No employee with this id"
+//             }
+//         }
+//     }
+// };
+
+// const employees = [
+//     { id: 101, name: "Alice", attendance: 20 },
+//     { id: 102, name: "Bob", attendance: 18 },
+//     { id: 103, name: "Charlie", attendance: 22 },
+// ];
+
+// const attendanceManager = manageAttendance(employees);
+// attendanceManager.addEmployee(104, 15);
+// attendanceManager.updateAttendance(102, 19);
+
+// console.log(attendanceManager.getAttendance(101)); // 20
+// console.log(attendanceManager.getAttendance(102)); // 15
+
+// --------------------------------
+
+// function sum(val1){
+//     return function (val2){
+//         if(val2){
+//             return sum(val1+val2);
+//         }else{
+//             return val1
+//         }
+//     }
+// }
+
+// console.log(sum(1)(2)(3)())
+
+// ------------------------------
+
+// const maskCreditCard = (cardNumber) => {
+//     if (cardNumber.length <= 4) {
+//         return cardNumber
+//     } else {
+//         let modifiedCardNumber = cardNumber.split("")
+//         for (let i = modifiedCardNumber.length - 5; i >= 0; i--) {
+//             modifiedCardNumber[i] = "#"
+//         }
+//         return modifiedCardNumber.join("")
+//     }
+// };
+
+// console.log(maskCreditCard("23454546363"))
+
+// Array.prototype.myMap = function (cbFn) {
+//     let temp = [];
+//     for (let i = 0; i < this.length; i++) {
+//         temp.push(cbFn(this[i]))
+//     }
+
+//     return temp
+// }
+// const arr = [1, 2, 3, 4];
+// const newArr = arr.myMap((element) => {
+//     return element * 2
+// })
+
+// console.log(newArr)
+
+// ---------------------------------
+
+// const promise1 = new Promise((resolve, reject) => {
+//     if (1 > 2) {
+//         resolve("Resolved")
+//     }else{
+//         reject("Rejected")
+//     }
+// });
+
+// const ans = promise1.then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// })
+
+// const name = "anas";
+// console.log(`my name is ${name}`)
+
+// ---------------------------
+
+// function findProviders(arr) {
+//     const ans = [];
+//     arr.forEach(item => {
+//         const modifiedItem = item.split("");
+//         let currentAns = [];
+//         let provider = ""
+//         for (let i = 0; i < modifiedItem.length; i++) {
+//             if (modifiedItem[i] === "@") {
+//                 currentAns.push(i);
+//             } else if (modifiedItem[i] === "." && currentAns.length > 0) {
+//                 currentAns.push(i);
+//             }
+//         }
+//         for (let i = currentAns[0] + 1; i < currentAns[1]; i++) {
+//             provider += modifiedItem[i];
+//         }
+//         ans.push(provider);
+//     });
+//     return ans
+// }
+// const arr = ["anas@gmail.com", "sara.@yahoo.in"];
+
+// console.log(findProviders(arr));
+
+// ----------------------------
+
+// function outer() {
+//     let count = 0;
+//     return function inner() {
+//         return count++;
+//     }
+// }
+
+// const output = outer();
+// console.log(output())
+// console.log(output())
+// console.log(output())
+
+function memoized(cbFn) {
+    const cache = {};
+    return function(...args){
+        const key = args.sort().toString();
+        if(cache[key]){
+            console.log("from cache")
+            return cache[key]
+        }else{
+            console.log("frist Calc")
+            cache[key] = cbFn(...args);
+            return cache[key];
+        }
+    }
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+let memoizeAdd = memoized(add);
+console.log(memoizeAdd(1, 2));
+console.log(memoizeAdd(1, 2));
+console.log(memoizeAdd(2, 1));
